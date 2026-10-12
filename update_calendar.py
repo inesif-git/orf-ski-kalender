@@ -1,9 +1,18 @@
 import json
+import re
 import urllib.request
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 URL = "https://epg.pw/api/epg.json?channel_id=76756"
 
-print("ORF SPORT+ - Sendungsdaten pruefen")
+SUCHBEGRIFFE = [
+    "ski", "alpin", "weltcup", "slalom",
+    "abfahrt", "super-g", "riesentorlauf",
+    "riesenslalom", "skiweltcup"
+]
+
+print("ORF SPORT+ - Ski-Sendungen suchen")
 
 request = urllib.request.Request(
     URL,
@@ -13,31 +22,38 @@ request = urllib.request.Request(
 with urllib.request.urlopen(request, timeout=30) as response:
     data = json.load(response)
 
-print("Fehlercode:", data.get("error_code"))
-print("Fehlermeldung:", data.get("error_message"))
 print("Sender:", data.get("name"))
-print("Zeitzone:", data.get("timezone"))
+print("API-Fehlercode:", data.get("error_code"))
 
 sendungen = data.get("epg_list", [])
+print("Sendungen insgesamt:", len(sendungen))
 
-if not isinstance(sendungen, list):
-    raise ValueError("epg_list ist keine Liste")
+treffer = []
 
-print("Anzahl Sendungen:", len(sendungen))
+for sendung in sendungen:
+    titel = str(sendung.get("title") or "")
+    beschreibung = str(sendung.get("desc") or "")
+    text = (titel + " " + beschreibung).lower()
 
-if not sendungen:
-    print("Keine Sendungen in der Antwort gefunden.")
-else:
-    print("Felder der ersten Sendung:")
-    print(list(sendungen[0].keys()))
+    if any(wort in text for wort in SUCHBEGRIFFE):
+        treffer.append(sendung)
 
-    print("Erste 5 Sendungen:")
-    for nummer, sendung in enumerate(sendungen[:5], 1):
-        print("Sendung", nummer)
-        print(json.dumps(
-            sendung,
-            ensure_ascii=False,
-            indent=2
-        )[:1200])
+print("Moegliche Ski-Sendungen:", len(treffer))
+
+for sendung in treffer[:30]:
+    zeit = str(sendung.get("start_date") or "")
+    try:
+        dt = datetime.fromisoformat(zeit.replace("Z", "+00:00"))
+        zeit = dt.astimezone(
+            ZoneInfo("Europe/Vienna")
+        ).strftime("%d.%m.%Y %H:%M")
+    except ValueError:
+        pass
+
+    print("-------------------------")
+    print("Beginn (Wien):", zeit)
+    print("Titel:", sendung.get("title"))
+    print("Beschreibung:",
+          str(sendung.get("desc") or "")[:200])
 
 print("TEST BEENDET - Kalender unveraendert")
