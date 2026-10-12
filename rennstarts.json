@@ -1,0 +1,18 @@
+{
+  "2026-10-24": {
+    "ort": "Sölden",
+    "disziplin": "Riesentorlauf",
+    "geschlecht": "Damen",
+    "erster_lauf": "10:00",
+    "zweiter_lauf": "13:00",
+    "zeitzone": "Europe/Vienna"
+  },
+  "2026-10-25": {
+    "ort": "Sölden",
+    "disziplin": "Riesentorlauf",
+    "geschlecht": "Herren",
+    "erster_lauf": "10:00",
+    "zweiter_lauf": "13:00",
+    "zeitzone": "Europe/Vienna"
+  }
+}
