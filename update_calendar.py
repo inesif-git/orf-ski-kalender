@@ -3,24 +3,20 @@ import urllib.request
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-URL = "https://epg.pw/api/epg.json?channel_id=76756"
+URL = "https://epg.pw/api/epg.json?channel_id=438442"
 
 SKI_BEGRIFFE = [
-    "ski alpin", "ski-alpin", "skiweltcup",
-    "ski-weltcup", "alpiner weltcup",
-    "slalom", "riesentorlauf", "riesenslalom",
-    "abfahrt", "super-g", "super g",
-    "ski: weltcup", "ski weltcup"
+    "ski", "alpin", "weltcup", "slalom",
+    "riesentorlauf", "riesenslalom",
+    "abfahrt", "super-g", "super g"
 ]
 
 AUSSCHLUSS = [
-    "silent sports", "sport 20",
-    "sport aktuell", "sportbild",
-    "wiederholung", "highlights",
-    "zusammenfassung", "rueckblick", "rückblick"
+    "highlights", "zusammenfassung",
+    "wiederholung", "rückblick", "rueckblick"
 ]
 
-print("ORF SPORT+ - gezielte Ski-Suche")
+print("ORF 1 - Ski-Programm pruefen")
 
 request = urllib.request.Request(
     URL,
@@ -42,19 +38,15 @@ for sendung in sendungen:
     titel = str(sendung.get("title") or "")
     titel_klein = titel.lower()
 
-    ist_ski = any(
-        wort in titel_klein for wort in SKI_BEGRIFFE
-    )
-    ist_ausgeschlossen = any(
-        wort in titel_klein for wort in AUSSCHLUSS
-    )
-
-    if ist_ski and not ist_ausgeschlossen:
+    if (
+        any(wort in titel_klein for wort in SKI_BEGRIFFE)
+        and not any(wort in titel_klein for wort in AUSSCHLUSS)
+    ):
         treffer.append(sendung)
 
-print("Moegliche Ski-Rennsendungen:", len(treffer))
+print("Moegliche Ski-Sendungen:", len(treffer))
 
-for sendung in treffer:
+for sendung in treffer[:20]:
     zeit = str(sendung.get("start_date") or "")
     try:
         dt = datetime.fromisoformat(
@@ -67,11 +59,9 @@ for sendung in treffer:
         pass
 
     print("-------------------------")
-    print("ORF-Sendebeginn (Wien):", zeit)
+    print("Sendebeginn (Wien):", zeit)
     print("Titel:", sendung.get("title"))
-    print(
-        "Beschreibung:",
-        str(sendung.get("desc") or "")[:250]
-    )
+    print("Beschreibung:",
+          str(sendung.get("desc") or "")[:200])
 
 print("TEST BEENDET - Kalender unveraendert")
