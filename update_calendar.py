@@ -2,12 +2,13 @@ import hashlib
 import json
 import re
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 WIEN = ZoneInfo("Europe/Vienna")
 JETZT = datetime.now(timezone.utc)
+KALENDER = Path("ski-weltcup.ics")
 
 SENDER = {
     "ORF 1": "438442",
@@ -58,8 +59,8 @@ def rennstart_finden(titel, beschreibung, datum, rennen):
         return None
 
     text = (titel + " " + beschreibung).lower()
-
     geschlecht = daten["geschlecht"].lower()
+
     if geschlecht == "damen":
         merkmale = ("damen", "frauen", "women", "ladies")
         gegenmerkmale = ("herren", "maenner", "männer", "men")
@@ -67,22 +68,17 @@ def rennstart_finden(titel, beschreibung, datum, rennen):
         merkmale = ("herren", "maenner", "männer", "men")
         gegenmerkmale = ("damen", "frauen", "women", "ladies")
 
-    if any(wort in text for wort in gegenmerkmale):
+    if any(w in text for w in gegenmerkmale):
+        return None
+    if not any(w in text for w in merkmale):
         return None
 
-    # Ohne eindeutige Zuordnung kein Rennstart.
-    if not any(wort in text for wort in merkmale):
-        return None
-
-    disziplin = daten["disziplin"].lower()
-    if "riesentorlauf" in disziplin:
+    if "riesentorlauf" in daten["disziplin"].lower():
         if not any(w in text for w in (
             "riesentorlauf", "riesenslalom",
             "giant slalom"
         )):
             return None
-    elif disziplin not in text:
-        return None
 
     if any(w in text for w in (
         "2. durchgang", "zweiter durchgang",
@@ -97,20 +93,20 @@ def rennstart_finden(titel, beschreibung, datum, rennen):
 
     return daten, uhrzeit
 
-def baue_event(sender, titel, beschreibung,
-                beginn, ende, daten, rennstart):
+def event_erstellen(sender, titel, beschreibung,
+                    beginn, ende, renndaten, rennstart):
     uid = hashlib.sha256(
         (sender + titel + beginn.isoformat()).encode()
     ).hexdigest()[:24] + "@orf-ski-kalender"
 
     titel_kalender = (
-        "🎿 " + daten["ort"] + " – "
-        + daten["disziplin"] + " "
-        + daten["geschlecht"]
+        "🎿 " + renndaten["ort"] + " – "
+        + renndaten["disziplin"] + " "
+        + renndaten["geschlecht"]
         + " | Rennstart " + rennstart + " Uhr"
     )
 
-    beschreibung_kalender = (
+    beschr = (
         "ORF-Liveuebertragung\n"
         + "Sender: " + sender + "\n"
         + "ORF-Sendebeginn: "
@@ -129,10 +125,68 @@ def baue_event(sender, titel, beschreibung,
         "DTSTART:" + ics_zeit(beginn),
         "DTEND:" + ics_zeit(ende),
         "SUMMARY:" + ics_text(titel_kalender),
-        "DESCRIPTION:" + ics_text(beschreibung_kalender),
+        "DESCRIPTION:" + ics_text(beschr),
         "LOCATION:" + ics_text(sender),
         "END:VEVENT",
     ]
+
+def uid_lesen(event):
+    for zeile in event:
+        if zeile.startswith("UID:"):
+            return zeile[4:]
+    return None
+
+def alte_events_lesen():
+    if not KALENDER.exists():
+        return {}
+
+    inhalt = KALENDER.read_text(
+        encoding="utf-8-sig"
+    )
+
+    # Gefaltete ICS-Zeilen wieder verbinden.
+    inhalt = re.sub(
+        r"\r?\n[ \t]", "", inhalt
+    )
+
+    ergebnis = {}
+
+    for teil in inhalt.split("BEGIN:VEVENT")[1:]:
+        if "END:VEVENT" not in teil:
+            continue
+
+        block = (
+            "BEGIN:VEVENT" +
+            teil.split("END:VEVENT", 1)[0] +
+            "END:VEVENT"
+        )
+        zeilen = block.splitlines()
+        uid = uid_lesen(zeilen)
+
+        # Nur von unserem Programm erzeugte
+        # Eintraege uebernehmen.
+        if not uid or not uid.endswith(
+            "@orf-ski-kalender"
+        ):
+            continue
+
+        match = re.search(
+            r"^DTSTART:(\d{8}T\d{6}Z)$",
+            block, re.MULTILINE
+        )
+        if not match:
+            continue
+
+        beginn = datetime.strptime(
+            match.group(1),
+            "%Y%m%dT%H%M%SZ"
+        ).replace(tzinfo=timezone.utc)
+
+        # Vergangene Termine entfernen.
+        if beginn >= JETZT:
+            ergebnis[uid] = zeilen
+
+    return ergebnis
 
 def zeilen_falten(zeilen):
     ergebnis = []
@@ -146,15 +200,18 @@ def zeilen_falten(zeilen):
         ergebnis.append(teil)
     return ergebnis
 
-print("ORF Ski-Kalender mit Rennstarts")
+print("ORF Ski-Kalender - Termine bewahren")
 
 with open("rennstarts.json", encoding="utf-8") as datei:
     rennen = json.load(datei)
 
 print("Hinterlegte Renntage:", len(rennen))
 
-events = []
+events = alte_events_lesen()
+print("Bisherige Zukunftstermine:", len(events))
+
 erfolgreiche_abrufe = 0
+neue_treffer = 0
 
 for sender, nummer in SENDER.items():
     print("Pruefe:", sender)
@@ -169,7 +226,6 @@ for sender, nummer in SENDER.items():
             url,
             headers={"User-Agent": "Mozilla/5.0"}
         )
-
         with urllib.request.urlopen(
             anfrage, timeout=30
         ) as antwort:
@@ -187,7 +243,6 @@ for sender, nummer in SENDER.items():
 
         programm.sort(key=lambda x: x[0])
         erfolgreiche_abrufe += 1
-        treffer = 0
 
         for index, (beginn, sendung) in enumerate(programm):
             if beginn < JETZT:
@@ -212,9 +267,8 @@ for sender, nummer in SENDER.items():
             zuordnung = rennstart_finden(
                 titel, beschreibung, datum, rennen
             )
-
             if not zuordnung:
-                print("Noch keine sichere Zuordnung:", titel)
+                print("Zuordnung unklar:", titel)
                 continue
 
             if index + 1 >= len(programm):
@@ -225,31 +279,31 @@ for sender, nummer in SENDER.items():
                 continue
 
             renndaten, rennstart = zuordnung
-
-            events.append(
-                baue_event(
-                    sender, titel, beschreibung,
-                    beginn, ende, renndaten, rennstart
-                )
+            event = event_erstellen(
+                sender, titel, beschreibung,
+                beginn, ende, renndaten, rennstart
             )
-            treffer += 1
 
-        print("Zugeordnete Live-Sendungen:", treffer)
+            uid = uid_lesen(event)
+            if uid not in events:
+                neue_treffer += 1
+            events[uid] = event
 
     except Exception as fehler:
-        print("Senderabruf fehlgeschlagen:", repr(fehler))
+        print("Abruf fehlgeschlagen:", repr(fehler))
 
-print("Erfolgreiche Abrufe:", erfolgreiche_abrufe)
-print("Neue Kalendereintraege:", len(events))
+print("Erfolgreiche Senderabrufe:", erfolgreiche_abrufe)
+print("Neue Live-Termine:", neue_treffer)
+print("Kalendereintraege insgesamt:", len(events))
 
 if erfolgreiche_abrufe != len(SENDER):
     raise RuntimeError(
-        "Nicht alle Sender erreichbar. "
+        "Senderabruf unvollstaendig. "
         "Kalender bleibt unveraendert."
     )
 
 if not events:
-    print("Noch keine passenden ORF-Live-Sendungen.")
+    print("Noch keine passenden Live-Termine.")
     print("Kalenderdatei bleibt unveraendert.")
 else:
     zeilen = [
@@ -260,7 +314,13 @@ else:
         "X-WR-CALNAME:ORF Ski-Weltcup LIVE",
     ]
 
-    for event in events:
+    for event in sorted(
+        events.values(),
+        key=lambda e: next(
+            (z for z in e if z.startswith("DTSTART:")),
+            ""
+        )
+    ):
         zeilen.extend(event)
 
     zeilen.append("END:VCALENDAR")
@@ -269,9 +329,9 @@ else:
         zeilen_falten(zeilen)
     ) + "\r\n"
 
-    Path("ski-weltcup.ics").write_bytes(
+    KALENDER.write_bytes(
         inhalt.encode("utf-8")
     )
-    print("Kalenderdatei geschrieben.")
+    print("Kalenderdatei aktualisiert.")
 
 print("FERTIG")
