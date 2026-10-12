@@ -3,26 +3,41 @@ import urllib.request
 
 URL = "https://epg.pw/api/epg.json?channel_id=76756"
 
-print("ORF Ski-Kalender: Verbindungstest")
+print("ORF SPORT+ - Sendungsdaten pruefen")
 
-try:
-    request = urllib.request.Request(
-        URL,
-        headers={"User-Agent": "Mozilla/5.0 ORF-Ski-Kalender-Test"}
-    )
-    with urllib.request.urlopen(request, timeout=20) as response:
-        content = response.read()
-        print("HTTP-Status:", response.status)
-        print("Datenmenge:", len(content), "Bytes")
-        data = json.loads(content)
-        print("JSON erfolgreich gelesen")
-        print("Datentyp:", type(data).__name__)
-        if isinstance(data, dict):
-            print("Feldnamen:", list(data.keys())[:15])
-        elif isinstance(data, list):
-            print("Anzahl Eintraege:", len(data))
-except Exception as error:
-    print("Verbindungstest fehlgeschlagen:", repr(error))
-    raise
+request = urllib.request.Request(
+    URL,
+    headers={"User-Agent": "Mozilla/5.0"}
+)
 
-print("Test abgeschlossen. Kalenderdatei unveraendert.")
+with urllib.request.urlopen(request, timeout=30) as response:
+    data = json.load(response)
+
+print("Fehlercode:", data.get("error_code"))
+print("Fehlermeldung:", data.get("error_message"))
+print("Sender:", data.get("name"))
+print("Zeitzone:", data.get("timezone"))
+
+sendungen = data.get("epg_list", [])
+
+if not isinstance(sendungen, list):
+    raise ValueError("epg_list ist keine Liste")
+
+print("Anzahl Sendungen:", len(sendungen))
+
+if not sendungen:
+    print("Keine Sendungen in der Antwort gefunden.")
+else:
+    print("Felder der ersten Sendung:")
+    print(list(sendungen[0].keys()))
+
+    print("Erste 5 Sendungen:")
+    for nummer, sendung in enumerate(sendungen[:5], 1):
+        print("Sendung", nummer)
+        print(json.dumps(
+            sendung,
+            ensure_ascii=False,
+            indent=2
+        )[:1200])
+
+print("TEST BEENDET - Kalender unveraendert")
