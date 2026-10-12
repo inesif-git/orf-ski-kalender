@@ -1,0 +1,33 @@
+name: ORF Ski Kalender aktualisieren
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Kalender aktualisieren
+        run: python update_calendar.py
+
+      - name: Kalenderdatei speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ski-weltcup.ics
+          if ! git diff --cached --quiet; then
+            git commit -m "Kalender automatisch aktualisiert"
+            git push
+          fi
