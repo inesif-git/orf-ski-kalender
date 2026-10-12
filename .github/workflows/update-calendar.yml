@@ -1,19 +1,19 @@
-name: ORF Ski Kalender aktualisieren
+name: Update Ski Calendar
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: '17 5 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  update-calendar:
+  update:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Repository laden
+      - name: Repository herunterladen
         uses: actions/checkout@v4
 
       - name: Python einrichten
@@ -21,8 +21,11 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Kalender aktualisieren
+      - name: ORF-Kalender aktualisieren
         run: python update_calendar.py
+
+      - name: FIS-Rennkalender pruefen
+        run: python pruefe_fis.py
 
       - name: Kalenderdatei speichern
         run: |
@@ -32,4 +35,6 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "Kalender automatisch aktualisiert"
             git push
+          else
+            echo "Keine Kalender-Aenderungen"
           fi
