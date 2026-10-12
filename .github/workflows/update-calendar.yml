@@ -24,12 +24,6 @@ jobs:
       - name: ORF-Kalender aktualisieren
         run: python update_calendar.py
 
-      - name: FIS-Rennkalender pruefen
-        run: python pruefe_fis.py
-
-      - name: ORF-Sendungen pruefen
-        run: python pruefe_orf.py
-
       - name: Kalenderdatei speichern
         run: |
           git config user.name "github-actions[bot]"
