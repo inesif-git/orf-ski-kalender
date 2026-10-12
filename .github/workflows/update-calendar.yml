@@ -2,6 +2,8 @@ name: ORF Ski Kalender aktualisieren
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * *'
 
 permissions:
   contents: write
