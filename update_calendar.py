@@ -7,51 +7,74 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-WIEN = ZoneInfo("Europe/Vienna")
+WIEN = ZoneInfo('Europe/Vienna')
 JETZT = datetime.now(timezone.utc)
 
 FIS_URL = (
-    "https://www.fis-ski.com/DB/services/public/"
-    "icalendar-feed-fis-events.html?"
-    "seasoncode=2027&sectorcode=AL&categorycode=WC"
+    'https://www.fis-ski.com/DB/services/public/'
+    'icalendar-feed-fis-events.html?'
+    'seasoncode=2027&sectorcode=AL&categorycode=WC'
 )
 
 SENDER = {
-    "ORF 1": "438442",
-    "ORF SPORT+": "76756",
+    'ORF 1': '438442',
+    'ORF SPORT+': '76756'
 }
 
-KALENDER = Path("ski-weltcup.ics")
-STARTZEITEN = Path("rennstarts.json")
+KALENDER = Path('ski-weltcup.ics')
+STARTZEITEN = Path('rennstarts.json')
+
+# Alpine Ski-WM Crans-Montana 2027
+# Offizielles Rennprogramm
+# Uhrzeiten in Österreich und der Schweiz: MEZ
+
+WM_PLAN = [
+    ('2027-02-01', 'Team-Parallel Mixed', 'Mixed', ['11:15']),
+    ('2027-02-04', 'Super-G', 'Damen', ['11:15']),
+    ('2027-02-05', 'Super-G', 'Herren', ['11:15']),
+    ('2027-02-06', 'Abfahrt', 'Damen', ['11:15']),
+    ('2027-02-07', 'Abfahrt', 'Herren', ['11:15']),
+    ('2027-02-09', 'Team-Kombination', 'Damen', ['10:00', '13:30']),
+    ('2027-02-10', 'Team-Kombination', 'Herren', ['10:00', '13:30']),
+    ('2027-02-11', 'Riesentorlauf', 'Damen', ['10:00', '13:30']),
+    ('2027-02-12', 'Riesentorlauf', 'Herren', ['10:00', '13:30']),
+    ('2027-02-13', 'Slalom', 'Damen', ['10:00', '13:30']),
+    ('2027-02-14', 'Slalom', 'Herren', ['10:00', '13:30']),
+]
 
 
 def laden(url):
-    anfrage = urllib.request.Request(
+    req = urllib.request.Request(
         url,
-        headers={"User-Agent": "Mozilla/5.0"}
+        headers={'User-Agent': 'Mozilla/5.0'}
     )
-    with urllib.request.urlopen(anfrage, timeout=30) as antwort:
-        return antwort.read().decode(
-            "utf-8-sig", errors="replace"
+
+    with urllib.request.urlopen(
+        req, timeout=30
+    ) as response:
+        return response.read().decode(
+            'utf-8-sig', errors='replace'
         )
 
 
 def entfalten(text):
-    ergebnis = []
-    for zeile in text.replace("\r\n", "\n").split("\n"):
-        if zeile.startswith((" ", "\t")) and ergebnis:
-            ergebnis[-1] += zeile[1:]
+    lines = []
+
+    for line in text.replace('\r\n', '\n').split('\n'):
+        if line.startswith((' ', '\t')) and lines:
+            lines[-1] += line[1:]
         else:
-            ergebnis.append(zeile)
-    return ergebnis
+            lines.append(line)
+
+    return lines
 
 
 def bereinigen(text):
     return (
         str(text)
-        .replace("\\n", " ")
-        .replace("\\,", ",")
-        .replace("\\;", ";")
+        .replace('\\n', ' ')
+        .replace('\\,', ',')
+        .replace('\\;', ';')
         .strip()
     )
 
@@ -60,18 +83,20 @@ def disziplin(text):
     text = text.lower()
 
     if any(w in text for w in (
-        "giant slalom", "riesentorlauf", "riesenslalom"
+        'giant slalom',
+        'riesentorlauf',
+        'riesenslalom'
     )):
-        return "Riesentorlauf"
+        return 'Riesentorlauf'
 
-    if "super-g" in text or "super g" in text:
-        return "Super-G"
+    if 'super-g' in text or 'super g' in text:
+        return 'Super-G'
 
-    if "downhill" in text or "abfahrt" in text:
-        return "Abfahrt"
+    if 'downhill' in text or 'abfahrt' in text:
+        return 'Abfahrt'
 
-    if re.search(r"\bslalom\b", text):
-        return "Slalom"
+    if re.search(r'\bslalom\b', text):
+        return 'Slalom'
 
     return None
 
@@ -79,24 +104,32 @@ def disziplin(text):
 def fis_datum_und_zeit(feld, wert):
     wert = wert.strip()
 
-    if "VALUE=DATE" in feld or re.fullmatch(r"\d{8}", wert):
-        datum = datetime.strptime(wert[:8], "%Y%m%d").date()
-        return datum, None
+    if (
+        'VALUE=DATE' in feld
+        or re.fullmatch(r'\d{8}', wert)
+    ):
+        return (
+            datetime.strptime(
+                wert[:8], '%Y%m%d'
+            ).date(),
+            None
+        )
 
     try:
-        if wert.endswith("Z"):
+        if wert.endswith('Z'):
             zeit = datetime.strptime(
-                wert, "%Y%m%dT%H%M%SZ"
+                wert, '%Y%m%dT%H%M%SZ'
             ).replace(tzinfo=timezone.utc)
         else:
             zeit = datetime.strptime(
-                wert[:15], "%Y%m%dT%H%M%S"
+                wert[:15], '%Y%m%dT%H%M%S'
             ).replace(tzinfo=WIEN)
 
         return (
             zeit.astimezone(WIEN).date(),
             zeit.astimezone(timezone.utc)
         )
+
     except ValueError:
         return None, None
 
@@ -104,79 +137,94 @@ def fis_datum_und_zeit(feld, wert):
 def fis_rennen():
     inhalt = laden(FIS_URL)
 
-    if "BEGIN:VCALENDAR" not in inhalt:
-        raise RuntimeError("FIS-Kalender nicht lesbar")
+    if 'BEGIN:VCALENDAR' not in inhalt:
+        raise RuntimeError(
+            'FIS-Kalender nicht lesbar; '
+            'alte Datei bleibt erhalten'
+        )
 
     bloecke = []
     block = None
 
     for zeile in entfalten(inhalt):
-        if zeile == "BEGIN:VEVENT":
+        if zeile == 'BEGIN:VEVENT':
             block = {}
 
-        elif zeile == "END:VEVENT":
+        elif zeile == 'END:VEVENT':
             if block is not None:
                 bloecke.append(block)
             block = None
 
-        elif block is not None and ":" in zeile:
-            feld, wert = zeile.split(":", 1)
+        elif block is not None and ':' in zeile:
+            feld, wert = zeile.split(':', 1)
 
-            if feld.startswith("DTSTART"):
-                block["startfeld"] = feld
-                block["startwert"] = wert
+            if feld.startswith('DTSTART'):
+                block['startfeld'] = feld
+                block['startwert'] = wert
 
-            elif feld == "SUMMARY":
-                block["titel"] = bereinigen(wert)
+            elif feld == 'SUMMARY':
+                block['titel'] = bereinigen(wert)
 
-            elif feld == "DESCRIPTION":
-                block["beschreibung"] = bereinigen(wert)
+            elif feld == 'DESCRIPTION':
+                block['beschreibung'] = bereinigen(wert)
 
     rennen = []
 
-    for eintrag in bloecke:
+    for e in bloecke:
         datum, fis_zeit = fis_datum_und_zeit(
-            eintrag.get("startfeld", ""),
-            eintrag.get("startwert", "")
+            e.get('startfeld', ''),
+            e.get('startwert', '')
         )
 
         if datum is None:
             continue
 
-        titel = eintrag.get("titel", "")
-        beschreibung = eintrag.get("beschreibung", "")
-        text = titel + " " + beschreibung
+        titel = e.get('titel', '')
+        beschreibung = e.get('beschreibung', '')
 
-        if re.search(r"Gender:\s*Women\b", beschreibung, re.I):
-            geschlecht = "Damen"
+        if re.search(
+            r'Gender:\s*Women\b',
+            beschreibung,
+            re.I
+        ):
+            geschlecht = 'Damen'
 
-        elif re.search(r"Gender:\s*Men\b", beschreibung, re.I):
-            geschlecht = "Herren"
+        elif re.search(
+            r'Gender:\s*Men\b',
+            beschreibung,
+            re.I
+        ):
+            geschlecht = 'Herren'
 
         else:
             continue
 
-        art = disziplin(text)
+        art = disziplin(
+            titel + ' ' + beschreibung
+        )
 
         if not art:
             continue
 
-        ort = re.split(r"\s+[-–]\s+", titel)[0].strip()
+        ort = re.split(
+            r'\s+[-–]\s+', titel
+        )[0].strip()
 
         rennen.append({
-            "datum": datum.isoformat(),
-            "ort": ort,
-            "disziplin": art,
-            "geschlecht": geschlecht,
-            "fis_zeit": fis_zeit,
-            "rennstarts": [],
-            "sendungen": [],
+            'datum': datum.isoformat(),
+            'ort': ort,
+            'disziplin': art,
+            'geschlecht': geschlecht,
+            'fis_zeit': fis_zeit,
+            'rennstarts': [],
+            'sendungen': [],
+            'wm': False
         })
 
     if not rennen:
         raise RuntimeError(
-            "Keine FIS-Rennen gefunden. "
-            "Bestehender Kalender bleibt erhalten."
+            'Keine FIS-Weltcuprennen gefunden; '
+            'alte Datei bleibt erhalten'
         )
 
     return rennen
@@ -188,21 +236,23 @@ def uhrzeit_lesen(wert, datum):
 
     wert = str(wert).strip()
 
-    if re.fullmatch(r"\d{1,2}:\d{2}", wert):
-        stunde, minute = map(int, wert.split(":"))
+    if re.fullmatch(r'\d{1,2}:\d{2}', wert):
+        hh, mm = map(int, wert.split(':'))
 
-        if stunde > 23 or minute > 59:
+        if hh > 23 or mm > 59:
             return None
 
-        return datetime.fromisoformat(datum).replace(
-            hour=stunde,
-            minute=minute,
+        return datetime.fromisoformat(
+            datum
+        ).replace(
+            hour=hh,
+            minute=mm,
             tzinfo=WIEN
         ).astimezone(timezone.utc)
 
     try:
         zeit = datetime.fromisoformat(
-            wert.replace("Z", "+00:00")
+            wert.replace('Z', '+00:00')
         )
 
         if zeit.tzinfo is None:
@@ -219,46 +269,82 @@ def startzeiten_ergaenzen(rennen):
         return
 
     daten = json.loads(
-        STARTZEITEN.read_text(encoding="utf-8")
+        STARTZEITEN.read_text(
+            encoding='utf-8'
+        )
     )
 
     for renn in rennen:
-        zusatz = daten.get(renn["datum"], {})
+        zusatz = daten.get(
+            renn['datum'], {}
+        )
 
         if not isinstance(zusatz, dict):
             continue
 
         if (
-            zusatz.get("geschlecht") != renn["geschlecht"]
-            or zusatz.get("disziplin") != renn["disziplin"]
+            zusatz.get('geschlecht')
+            != renn['geschlecht']
+            or zusatz.get('disziplin')
+            != renn['disziplin']
         ):
             continue
 
-        for schluessel in (
-            "erster_lauf",
-            "zweiter_lauf",
-            "start",
-            "startzeit",
+        for key in (
+            'erster_lauf',
+            'zweiter_lauf',
+            'start',
+            'startzeit'
         ):
             zeit = uhrzeit_lesen(
-                zusatz.get(schluessel),
-                renn["datum"]
+                zusatz.get(key),
+                renn['datum']
             )
 
-            if zeit and zeit not in renn["rennstarts"]:
-                renn["rennstarts"].append(zeit)
+            if (
+                zeit
+                and zeit not in renn['rennstarts']
+            ):
+                renn['rennstarts'].append(zeit)
 
-        renn["rennstarts"].sort()
+        renn['rennstarts'].sort()
+
+
+def wm_ergaenzen(rennen):
+    for (
+        datum,
+        art,
+        geschlecht,
+        uhrzeiten
+    ) in WM_PLAN:
+
+        rennen.append({
+            'datum': datum,
+            'ort': 'Crans-Montana',
+            'disziplin': art,
+            'geschlecht': geschlecht,
+            'fis_zeit': None,
+            'rennstarts': [
+                uhrzeit_lesen(z, datum)
+                for z in uhrzeiten
+            ],
+            'sendungen': [],
+            'wm': True
+        })
 
 
 def programmzeit(wert):
     try:
         zeit = datetime.fromisoformat(
-            str(wert).replace("Z", "+00:00")
+            str(wert).replace(
+                'Z', '+00:00'
+            )
         )
 
         if zeit.tzinfo is None:
-            zeit = zeit.replace(tzinfo=timezone.utc)
+            zeit = zeit.replace(
+                tzinfo=timezone.utc
+            )
 
         return zeit.astimezone(timezone.utc)
 
@@ -268,21 +354,23 @@ def programmzeit(wert):
 
 def ist_ski(titel):
     return bool(re.search(
-        r"\b(?:ski(?:[- ]?alpin|[- ]?weltcup)?|"
-        r"riesentorlauf|riesenslalom|"
-        r"slalom|abfahrt|super[- ]?g)\b",
+        r'\b(?:ski(?:[- ]?alpin|[- ]?weltcup)?|'
+        r'riesentorlauf|riesenslalom|'
+        r'slalom|abfahrt|super[- ]?g|'
+        r'team[- ]?kombination|'
+        r'team[- ]?parallel)\b',
         titel,
         re.I
     ))
 
 
 def ist_live(titel, beschreibung):
-    text = titel + " " + beschreibung
+    text = titel + ' ' + beschreibung
 
     if re.search(
-        r"\b(?:wiederholung|highlights?|"
-        r"zusammenfassung|rückblick|"
-        r"rueckblick|replay)\b",
+        r'\b(?:wiederholung|highlights?|'
+        r'zusammenfassung|rückblick|'
+        r'rueckblick|replay)\b',
         text,
         re.I
     ):
@@ -290,14 +378,20 @@ def ist_live(titel, beschreibung):
 
     return bool(
         re.search(
-            r"\b(?:live|direkt|liveübertragung|"
-            r"direktübertragung)\b",
+            r'\b(?:live|direkt|'
+            r'liveübertragung|'
+            r'direktübertragung)\b',
             text,
             re.I
         )
-        or re.search(r"\bcountdown\b", titel, re.I)
         or re.search(
-            r"\b(?:1\.|2\.)\s*(?:durchgang|lauf)\b",
+            r'\bcountdown\b',
+            titel,
+            re.I
+        )
+        or re.search(
+            r'\b(?:1\.|2\.)\s*'
+            r'(?:durchgang|lauf)\b',
             titel,
             re.I
         )
@@ -306,16 +400,16 @@ def ist_live(titel, beschreibung):
 
 def durchgang_erkennen(text):
     if re.search(
-        r"\b(?:1\.|erster|erste)\s*"
-        r"(?:durchgang|lauf)\b",
+        r'\b(?:1\.|erster|erste)\s*'
+        r'(?:durchgang|lauf)\b',
         text,
         re.I
     ):
         return 1
 
     if re.search(
-        r"\b(?:2\.|zweiter|zweite)\s*"
-        r"(?:durchgang|lauf)\b",
+        r'\b(?:2\.|zweiter|zweite)\s*'
+        r'(?:durchgang|lauf)\b',
         text,
         re.I
     ):
@@ -324,22 +418,29 @@ def durchgang_erkennen(text):
     return None
 
 
-def zuordnen(titel, beschreibung, datum, rennen):
-    text = titel + " " + beschreibung
+def zuordnen(
+    titel,
+    beschreibung,
+    datum,
+    rennen
+):
+    text = titel + ' ' + beschreibung
 
     kandidaten = [
         r for r in rennen
-        if r["datum"] == datum
+        if r['datum'] == datum
     ]
 
     damen = bool(re.search(
-        r"\b(?:damen|frauen|women|ladies)\b",
+        r'\b(?:damen|frauen|'
+        r'women|ladies)\b',
         text,
         re.I
     ))
 
     herren = bool(re.search(
-        r"\b(?:herren|männer|maenner|men)\b",
+        r'\b(?:herren|männer|'
+        r'maenner|men)\b',
         text,
         re.I
     ))
@@ -350,73 +451,111 @@ def zuordnen(titel, beschreibung, datum, rennen):
     if damen:
         kandidaten = [
             r for r in kandidaten
-            if r["geschlecht"] == "Damen"
+            if r['geschlecht'] == 'Damen'
         ]
 
     if herren:
         kandidaten = [
             r for r in kandidaten
-            if r["geschlecht"] == "Herren"
+            if r['geschlecht'] == 'Herren'
         ]
 
     art = disziplin(text)
 
+    if re.search(
+        r'team[- ]?kombination|'
+        r'team combined',
+        text,
+        re.I
+    ):
+        art = 'Team-Kombination'
+
+    elif re.search(
+        r'team[- ]?parallel|'
+        r'mixed team|team event',
+        text,
+        re.I
+    ):
+        art = 'Team-Parallel Mixed'
+
     if art:
         kandidaten = [
             r for r in kandidaten
-            if r["disziplin"] == art
+            if r['disziplin'] == art
         ]
 
     mit_ort = [
         r for r in kandidaten
-        if r["ort"].lower() in text.lower()
+        if r['ort'].lower()
+        in text.lower()
     ]
 
     if mit_ort:
         kandidaten = mit_ort
 
-    if len(kandidaten) != 1:
-        return None
-
-    return kandidaten[0]
+    return (
+        kandidaten[0]
+        if len(kandidaten) == 1
+        else None
+    )
 
 
 def orf_ergaenzen(rennen):
     for sender, nummer in SENDER.items():
         try:
             daten = json.loads(laden(
-                "https://epg.pw/api/epg.json?"
-                "channel_id=" + nummer
+                'https://epg.pw/api/epg.json?'
+                'channel_id=' + nummer
             ))
 
-            sendungen = daten.get("epg_list")
+            sendungen = daten.get(
+                'epg_list'
+            )
 
-            if not isinstance(sendungen, list):
-                raise ValueError("Programmliste fehlt")
+            if not isinstance(
+                sendungen, list
+            ):
+                raise ValueError(
+                    'Programmliste fehlt'
+                )
 
             programm = []
 
             for sendung in sendungen:
                 beginn = programmzeit(
-                    sendung.get("start_date")
+                    sendung.get('start_date')
                 )
 
                 if beginn:
-                    programm.append((beginn, sendung))
+                    programm.append(
+                        (beginn, sendung)
+                    )
 
-            programm.sort(key=lambda x: x[0])
+            programm.sort(
+                key=lambda x: x[0]
+            )
+
             treffer = 0
 
-            for i, (beginn, sendung) in enumerate(
+            for i, (
+                beginn, sendung
+            ) in enumerate(
                 programm[:-1]
             ):
-                titel = str(sendung.get("title") or "")
-                beschreibung = str(sendung.get("desc") or "")
+                titel = str(
+                    sendung.get('title') or ''
+                )
+
+                beschreibung = str(
+                    sendung.get('desc') or ''
+                )
 
                 if not ist_ski(titel):
                     continue
 
-                if not ist_live(titel, beschreibung):
+                if not ist_live(
+                    titel, beschreibung
+                ):
                     continue
 
                 datum = beginn.astimezone(
@@ -430,40 +569,38 @@ def orf_ergaenzen(rennen):
                     rennen
                 )
 
-                if renn is None:
-                    continue
-
                 ende = programm[i + 1][0]
 
-                if ende <= beginn:
+                if (
+                    renn is None
+                    or ende <= beginn
+                ):
                     continue
 
-                renn["sendungen"].append({
-                    "beginn": beginn,
-                    "ende": ende,
-                    "sender": sender,
-                    "titel": titel,
-                    "durchgang": durchgang_erkennen(
-                        titel + " " + beschreibung
-                    ),
-                    "countdown": bool(re.search(
-                        r"\bcountdown\b",
-                        titel,
-                        re.I
-                    )),
+                renn['sendungen'].append({
+                    'beginn': beginn,
+                    'ende': ende,
+                    'sender': sender,
+                    'titel': titel,
+                    'durchgang': (
+                        durchgang_erkennen(
+                            titel + ' '
+                            + beschreibung
+                        )
+                    )
                 })
 
                 treffer += 1
 
             print(
                 sender,
-                "- passende Sendungen:",
+                '- passende Sendungen:',
                 treffer
             )
 
         except Exception as fehler:
             print(
-                "ORF momentan nicht verfügbar:",
+                'ORF momentan nicht verfügbar:',
                 sender,
                 str(fehler)
             )
@@ -472,31 +609,33 @@ def orf_ergaenzen(rennen):
 def ics_text(wert):
     return (
         str(wert)
-        .replace("\\", "\\\\")
-        .replace("\n", "\\n")
-        .replace(",", "\\,")
-        .replace(";", "\\;")
+        .replace('\\', '\\\\')
+        .replace('\n', '\\n')
+        .replace(',', '\\,')
+        .replace(';', '\\;')
     )
 
 
 def utc_format(zeit):
     return zeit.astimezone(
         timezone.utc
-    ).strftime("%Y%m%dT%H%M%SZ")
+    ).strftime('%Y%m%dT%H%M%SZ')
 
 
 def zeilen_falten(zeilen):
     ergebnis = []
 
     for zeile in zeilen:
-        teil = ""
+        teil = ''
 
         for zeichen in zeile:
             if len(
-                (teil + zeichen).encode("utf-8")
+                (teil + zeichen).encode(
+                    'utf-8'
+                )
             ) > 70:
                 ergebnis.append(teil)
-                teil = " "
+                teil = ' '
 
             teil += zeichen
 
@@ -506,282 +645,399 @@ def zeilen_falten(zeilen):
 
 
 def uid_fuer_rennen(renn, nummer):
-    # Absichtlich dieselbe UID wie bisher.
-    # Sie wird für den ersten Durchgang weiterverwendet.
-    identitaet = "|".join((
-        renn["datum"],
-        renn["geschlecht"],
-        renn["disziplin"],
-        renn["ort"],
-        str(nummer),
-    ))
+    if renn['wm']:
+        identitaet = '|'.join((
+            'WM2027',
+            renn['datum'],
+            renn['geschlecht'],
+            renn['disziplin']
+        ))
+
+    else:
+        # Bestehende Weltcup-UIDs
+        # bleiben unverändert.
+        identitaet = '|'.join((
+            renn['datum'],
+            renn['geschlecht'],
+            renn['disziplin'],
+            renn['ort'],
+            str(nummer)
+        ))
 
     return (
         hashlib.sha256(
-            identitaet.encode("utf-8")
+            identitaet.encode('utf-8')
         ).hexdigest()[:24]
-        + "@orf-ski-kalender"
+        + '@orf-ski-kalender'
     )
 
 
 def rennlaeufe(renn):
-    starts = sorted(set(renn["rennstarts"]))
+    starts = sorted(set(
+        renn['rennstarts']
+    ))
 
-    if not starts and renn["fis_zeit"]:
-        starts = [renn["fis_zeit"]]
-
-    if renn["disziplin"] in ("Slalom", "Riesentorlauf"):
-        if len(starts) >= 2:
-            return [
-                {"nummer": 1, "start": starts[0]},
-                {"nummer": 2, "start": starts[1]},
-            ]
-
-        if len(starts) == 1:
-            return [
-                {"nummer": 1, "start": starts[0]}
-            ]
-
-        return [
-            {"nummer": 1, "start": None}
+    if (
+        not starts
+        and renn['fis_zeit']
+    ):
+        starts = [
+            renn['fis_zeit']
         ]
 
-    return [
-        {
-            "nummer": None,
-            "start": starts[0] if starts else None
-        }
-    ]
+    if renn['disziplin'] in (
+        'Slalom',
+        'Riesentorlauf',
+        'Team-Kombination'
+    ):
+        if len(starts) >= 2:
+            return [
+                {
+                    'nummer': 1,
+                    'start': starts[0]
+                },
+                {
+                    'nummer': 2,
+                    'start': starts[1]
+                }
+            ]
+
+        if starts:
+            return [{
+                'nummer': 1,
+                'start': starts[0]
+            }]
+
+        return [{
+            'nummer': 1,
+            'start': None
+        }]
+
+    return [{
+        'nummer': None,
+        'start': (
+            starts[0]
+            if starts
+            else None
+        )
+    }]
 
 
-def sendungen_aufteilen(renn, laeufe):
-    """
-    ORF-Sendungen nach explizitem Durchgang zuordnen.
-    Countdown ohne Nummer dem nächsten Rennstart
-    zuordnen, wenn dieser eindeutig feststeht.
-    """
+def sendungen_aufteilen(
+    renn,
+    laeufe
+):
     zuordnung = {
-        lauf["nummer"]: []
+        lauf['nummer']: []
         for lauf in laeufe
     }
 
-    for sendung in renn["sendungen"]:
-        nummer = sendung["durchgang"]
+    for sendung in renn['sendungen']:
+        nummer = sendung['durchgang']
 
         if nummer in zuordnung:
-            zuordnung[nummer].append(sendung)
+            zuordnung[nummer].append(
+                sendung
+            )
             continue
 
         if len(laeufe) == 1:
-            zuordnung[laeufe[0]["nummer"]].append(sendung)
+            zuordnung[
+                laeufe[0]['nummer']
+            ].append(sendung)
             continue
 
-        bekannte = [
-            lauf for lauf in laeufe
-            if lauf["start"] is not None
-        ]
-
-        if len(bekannte) < 2:
-            continue
-
-        # Nur zuordnen, wenn die Sendung in einem
-        # plausiblen Zeitfenster vor dem Lauf beginnt.
         kandidaten = []
 
-        for lauf in bekannte:
+        for lauf in laeufe:
+            if lauf['start'] is None:
+                continue
+
             abstand = (
-                lauf["start"] - sendung["beginn"]
+                lauf['start']
+                - sendung['beginn']
             ).total_seconds() / 60
 
             if -30 <= abstand <= 90:
                 kandidaten.append((
                     abs(abstand),
-                    lauf["nummer"]
+                    lauf['nummer']
                 ))
 
-        if len(kandidaten) == 1:
-            zuordnung[kandidaten[0][1]].append(sendung)
+        kandidaten.sort()
 
-        elif len(kandidaten) > 1:
-            kandidaten.sort()
-
-            if kandidaten[0][0] != kandidaten[1][0]:
-                zuordnung[kandidaten[0][1]].append(sendung)
+        if kandidaten and (
+            len(kandidaten) == 1
+            or kandidaten[0][0]
+            != kandidaten[1][0]
+        ):
+            zuordnung[
+                kandidaten[0][1]
+            ].append(sendung)
 
     return zuordnung
 
 
 def kalender_schreiben(rennen):
     zeilen = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//ORF Ski Kalender//DE",
-        "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
-        "X-WR-CALNAME:ORF Ski-Weltcup LIVE",
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//ORF Ski Kalender//DE',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'X-WR-CALNAME:ORF Ski-Weltcup LIVE'
     ]
 
     statistik = {
-        "ORF": 0,
-        "Rennstart": 0,
-        "Ganztag": 0,
+        'ORF': 0,
+        'Rennstart': 0,
+        'Ganztag': 0,
+        'WM-Einträge': 0
     }
 
-    for nummer, renn in enumerate(rennen):
+    for nummer, renn in enumerate(
+        rennen
+    ):
         datum = datetime.fromisoformat(
-            renn["datum"]
+            renn['datum']
         ).date()
 
-        basis_uid = uid_fuer_rennen(renn, nummer)
+        basis_uid = uid_fuer_rennen(
+            renn,
+            nummer
+        )
+
         laeufe = rennlaeufe(renn)
-        sendungen = sendungen_aufteilen(renn, laeufe)
+
+        sendungen = sendungen_aufteilen(
+            renn,
+            laeufe
+        )
 
         for lauf in laeufe:
-            laufnummer = lauf["nummer"]
-            start = lauf["start"]
+            laufnummer = lauf['nummer']
+            start = lauf['start']
 
-            # Der 1. Durchgang behält die bisherige UID.
-            # Nur der 2. Durchgang erhält eine neue UID.
             if laufnummer == 2:
                 uid = basis_uid.replace(
-                    "@orf-ski-kalender",
-                    "-lauf2@orf-ski-kalender"
+                    '@orf-ski-kalender',
+                    '-lauf2@orf-ski-kalender'
                 )
             else:
                 uid = basis_uid
 
             titel = (
-                "🎿 " + renn["ort"]
-                + " – " + renn["disziplin"]
-                + " " + renn["geschlecht"]
+                '🏆 Ski-WM 2027 – '
+                if renn['wm']
+                else (
+                    '🎿 '
+                    + renn['ort']
+                    + ' – '
+                )
+            )
+
+            titel += (
+                renn['disziplin']
+                + ' '
+                + renn['geschlecht']
             )
 
             if laufnummer is not None:
-                titel += " | " + str(laufnummer) + ". Durchgang"
+                if (
+                    renn['disziplin']
+                    == 'Team-Kombination'
+                ):
+                    titel += (
+                        ' | Abfahrt'
+                        if laufnummer == 1
+                        else ' | Slalom'
+                    )
+                else:
+                    titel += (
+                        ' | '
+                        + str(laufnummer)
+                        + '. Durchgang'
+                    )
 
             beschreibung = (
-                "FIS Ski-Weltcup 2026/27."
+                'Alpine Ski-WM '
+                'Crans-Montana 2027.'
+                if renn['wm']
+                else (
+                    'FIS Ski-Weltcup '
+                    '2026/27.'
+                )
             )
 
             if start:
                 beschreibung += (
-                    "\nOffizieller Rennstart: "
-                    + start.astimezone(WIEN).strftime("%H:%M")
-                    + " Uhr"
+                    '\nOffizieller Rennstart: '
+                    + start.astimezone(
+                        WIEN
+                    ).strftime('%H:%M')
+                    + ' Uhr'
                 )
 
-            passende_sendungen = sendungen.get(
-                laufnummer, []
+            passende = sendungen.get(
+                laufnummer,
+                []
             )
 
-            if passende_sendungen:
+            if passende:
                 beginn = min(
-                    s["beginn"]
-                    for s in passende_sendungen
+                    s['beginn']
+                    for s in passende
                 )
 
                 ende = max(
-                    s["ende"]
-                    for s in passende_sendungen
+                    s['ende']
+                    for s in passende
                 )
 
-                sender = ", ".join(sorted({
-                    s["sender"]
-                    for s in passende_sendungen
+                sender = ', '.join(sorted({
+                    s['sender']
+                    for s in passende
                 }))
 
-                titel += " | ORF LIVE"
+                titel += ' | ORF LIVE'
 
                 beschreibung += (
-                    "\nORF-Sendebeginn: "
-                    + beginn.astimezone(WIEN).strftime("%H:%M")
-                    + " Uhr"
-                    + "\nSender: " + sender
+                    '\nORF-Sendebeginn: '
+                    + beginn.astimezone(
+                        WIEN
+                    ).strftime('%H:%M')
+                    + ' Uhr'
+                    + '\nSender: '
+                    + sender
                 )
 
                 zeitzeilen = [
-                    "DTSTART:" + utc_format(beginn),
-                    "DTEND:" + utc_format(ende),
+                    'DTSTART:'
+                    + utc_format(beginn),
+                    'DTEND:'
+                    + utc_format(ende)
                 ]
 
-                statistik["ORF"] += 1
+                statistik['ORF'] += 1
 
             elif start:
-                # Vorläufige Dauer pro Durchgang.
-                ende = start + timedelta(minutes=90)
+                ende = (
+                    start
+                    + timedelta(minutes=90)
+                )
 
                 titel += (
-                    " | Start "
-                    + start.astimezone(WIEN).strftime("%H:%M")
-                    + " Uhr"
+                    ' | Start '
+                    + start.astimezone(
+                        WIEN
+                    ).strftime('%H:%M')
+                    + ' Uhr'
                 )
 
                 beschreibung += (
-                    "\nORF-Sendezeit noch nicht erkannt."
-                    "\nDauer vorläufig."
+                    '\nORF-Sendezeit '
+                    'noch nicht erkannt. '
+                    'Dauer vorläufig.'
                 )
 
                 zeitzeilen = [
-                    "DTSTART:" + utc_format(start),
-                    "DTEND:" + utc_format(ende),
+                    'DTSTART:'
+                    + utc_format(start),
+                    'DTEND:'
+                    + utc_format(ende)
                 ]
 
-                statistik["Rennstart"] += 1
+                statistik['Rennstart'] += 1
 
             else:
-                titel += " | vorläufig"
+                titel += ' | vorläufig'
 
                 beschreibung += (
-                    "\nNoch keine bestätigte Startzeit."
+                    '\nNoch keine '
+                    'bestätigte Startzeit.'
                 )
 
                 zeitzeilen = [
-                    "DTSTART;VALUE=DATE:"
-                    + datum.strftime("%Y%m%d"),
-                    "DTEND;VALUE=DATE:"
+                    'DTSTART;VALUE=DATE:'
+                    + datum.strftime(
+                        '%Y%m%d'
+                    ),
+                    'DTEND;VALUE=DATE:'
                     + (
-                        datum + timedelta(days=1)
-                    ).strftime("%Y%m%d"),
+                        datum
+                        + timedelta(days=1)
+                    ).strftime('%Y%m%d')
                 ]
 
-                statistik["Ganztag"] += 1
+                statistik['Ganztag'] += 1
+
+            if renn['wm']:
+                statistik['WM-Einträge'] += 1
 
             zeilen.extend([
-                "BEGIN:VEVENT",
-                "UID:" + uid,
-                "DTSTAMP:" + utc_format(JETZT),
+                'BEGIN:VEVENT',
+                'UID:' + uid,
+                'DTSTAMP:'
+                + utc_format(JETZT),
                 *zeitzeilen,
-                "SUMMARY:" + ics_text(titel),
-                "DESCRIPTION:" + ics_text(beschreibung),
-                "END:VEVENT",
+                'SUMMARY:'
+                + ics_text(titel),
+                'DESCRIPTION:'
+                + ics_text(
+                    beschreibung
+                ),
+                'END:VEVENT'
             ])
 
-    zeilen.append("END:VCALENDAR")
-
-    inhalt = "\r\n".join(
-        zeilen_falten(zeilen)
-    ) + "\r\n"
-
-    KALENDER.write_bytes(
-        inhalt.encode("utf-8")
+    zeilen.append(
+        'END:VCALENDAR'
     )
 
-    gesamt = sum(statistik.values())
+    inhalt = (
+        '\r\n'.join(
+            zeilen_falten(zeilen)
+        )
+        + '\r\n'
+    )
 
-    print("Kalendereinträge:", gesamt)
+    KALENDER.write_bytes(
+        inhalt.encode('utf-8')
+    )
 
-    for name, anzahl in statistik.items():
-        print(name + ":", anzahl)
+    gesamt = (
+        statistik['ORF']
+        + statistik['Rennstart']
+        + statistik['Ganztag']
+    )
 
-    print("FERTIG")
+    print(
+        'Kalendereinträge:',
+        gesamt
+    )
+
+    for key, value in statistik.items():
+        print(
+            key + ':',
+            value
+        )
+
+    print('FERTIG')
 
 
-if __name__ == "__main__":
-    print("Erstelle Kalender mit einzelnen Durchgängen")
+if __name__ == '__main__':
+    print(
+        'Erstelle Weltcup- und '
+        'Ski-WM-Kalender 2026/27'
+    )
 
     rennen = fis_rennen()
-    print("FIS-Rennen gefunden:", len(rennen))
+
+    print(
+        'FIS-Weltcuprennen gefunden:',
+        len(rennen)
+    )
 
     startzeiten_ergaenzen(rennen)
+    wm_ergaenzen(rennen)
     orf_ergaenzen(rennen)
     kalender_schreiben(rennen)
