@@ -6,842 +6,763 @@ METHOD:PUBLISH
 X-WR-CALNAME:ORF Ski-Weltcup LIVE
 BEGIN:VEVENT
 UID:3427e6e41bd238e3f8708345@orf-ski-kalender
-DTSTAMP:20261014T045413Z
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:🎿 Soelden (AUT) – Riesentorlauf Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.\nHinterlegte Rennstarts: 10:00 Uhr\, 13:00 Uhr
+DTSTAMP:20261014T051548Z
+DTSTART:20261025T090000Z
+DTEND:20261025T133000Z
+SUMMARY:🎿 Soelden (AUT) – Riesentorlauf Herren | Rennstart 10:00 
+ Uhr
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nRennstarts (Wien):
+  10:00 Uhr\, 13:00 Uhr\nORF-Sendezeit noch nicht bekannt. Dauer vorl
+ äufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:e127051e1556e5f4340b59e5@orf-ski-kalender
-DTSTAMP:20261014T045413Z
-DTSTART;VALUE=DATE:20261024
-DTEND;VALUE=DATE:20261025
-SUMMARY:🎿 Soelden (AUT) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.\nHinterlegte Rennstarts: 10:00 Uhr\, 13:00 Uhr
+DTSTAMP:20261014T051548Z
+DTSTART:20261024T080000Z
+DTEND:20261024T123000Z
+SUMMARY:🎿 Soelden (AUT) – Riesentorlauf Damen | Rennstart 10:00 U
+ hr
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nRennstarts (Wien):
+  10:00 Uhr\, 13:00 Uhr\nORF-Sendezeit noch nicht bekannt. Dauer vorl
+ äufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:d25d5e340abc8ef28e4b207e@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🎿 Levi (FIN) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:c4c4326a0c375e35f736acd1@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:🎿 Levi (FIN) – Slalom Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:bc34f051f317adc676104cc8@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:🎿 Gurgl (AUT) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:348335e718a849fbf1d55ce7@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:🎿 Gurgl (AUT) – Slalom Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:caf644eca09deed49050c928@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:🎿 Killington (USA) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:68e484aa6a836566e2ba811b@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:🎿 Killington (USA) – Slalom Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:0f96d6c6148071cc36fcb0a7@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:🎿 Copper Mountain\, CO (USA) – Super-G Herren | vorläufi
  g
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:665e9276f54875b5cd2fc49d@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:🎿 Copper Mountain\, CO (USA) – Riesentorlauf Herren | vor
  läufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:dbf2e11e0ec1bc1f65ec40cc@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:🎿 Beaver Creek (USA) – Riesentorlauf Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:7e5084283ca60c6cd957b2ad@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:🎿 Beaver Creek (USA) – Super-G Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:6064495c2546866ed2f12f04@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:🎿 Beaver Creek (USA) – Abfahrt Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:3ae591b0af4c7bc620080f9e@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261203
 DTEND;VALUE=DATE:20261204
 SUMMARY:🎿 Beaver Creek (USA) – Abfahrt Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:51d90dbaab8a5e3b3a59cb30@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:🎿 Tremblant (CAN) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:8ed6fe01e965319ef535244d@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:🎿 Tremblant (CAN) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:36c0e6837b52ef250c221fdd@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:🎿 Beaver Creek (USA) – Abfahrt Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:1a1654446aa5972ce75c189d@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:🎿 Beaver Creek (USA) – Abfahrt Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:a623b632f80e1cca243b0c2a@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:🎿 Beaver Creek (USA) – Super-G Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:6f87c6ee9d53d2b55c50f71b@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:🎿 Val d'Isere (FRA) – Riesentorlauf Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:695e608e83c8e8a68ab615f7@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:🎿 Val d'Isere (FRA) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:2cf7894931c00e41718f0c9b@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261219
 SUMMARY:🎿 Val Gardena-Groeden Südtirol (ITA) – Super-G Herren | 
  vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:ca3e014731e38e5faa406c2f@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261219
 DTEND;VALUE=DATE:20261220
 SUMMARY:🎿 Val Gardena-Groeden Südtirol (ITA) – Abfahrt Herren | 
  vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:fd4c424d5f0c8f94e6eb9519@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261219
 SUMMARY:🎿 St. Moritz (SUI) – Super-G Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:251e6ec9b2853c03a0bd7b5c@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261219
 DTEND;VALUE=DATE:20261220
 SUMMARY:🎿 St. Moritz (SUI) – Super-G Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:d81c42d59f72766ec96324e2@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:🎿 St. Moritz (SUI) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:13cbbe3eb55de6281634d884@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:🎿 Alta Badia (ITA) – Riesentorlauf Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:632d5f402121ac7b681547b2@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261221
 DTEND;VALUE=DATE:20261222
 SUMMARY:🎿 Alta Badia (ITA) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:771e4f92af5f2c8b94b67b45@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261222
 DTEND;VALUE=DATE:20261223
 SUMMARY:🎿 Courchevel (FRA) – Slalom Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:2233e2f2b2b99dee0158b886@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261223
 DTEND;VALUE=DATE:20261224
 SUMMARY:🎿 Madonna di Campiglio (ITA) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:5180129c69dc90152c3ddfad@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261229
 DTEND;VALUE=DATE:20261230
 SUMMARY:🎿 Bormio (ITA) – Super-G Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:042b6a954abb0a29c92b2d01@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261228
 DTEND;VALUE=DATE:20261229
 SUMMARY:🎿 Bormio (ITA) – Abfahrt Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:e65469d3ec32eb1d18300781@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261228
 DTEND;VALUE=DATE:20261229
 SUMMARY:🎿 Dachstein West / Gosau (AUT) – Riesentorlauf Damen | vo
  rläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:2df18573d13a40f0ea2992ee@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20261229
 DTEND;VALUE=DATE:20261230
 SUMMARY:🎿 Dachstein West / Gosau (AUT) – Slalom Damen | vorläufi
  g
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:07203d6615ef720acec124bd@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270103
 SUMMARY:🎿 Kranjska Gora (SLO) – Riesentorlauf Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:3b544977d2d38ecd8bae63e5@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
 SUMMARY:🎿 Kranjska Gora (SLO) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:394efe2ddc912700518d9644@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270104
 DTEND;VALUE=DATE:20270105
 SUMMARY:🎿 Flachau (AUT) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:9d9b127b63fb293ec2e9c7c8@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:🎿 Flachau (AUT) – Slalom Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:b394d45f9bd08417f851d437@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270109
 DTEND;VALUE=DATE:20270110
 SUMMARY:🎿 Val di Fassa (ITA) – Abfahrt Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:7d3f760c633bdc5a34d14d36@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:🎿 Val di Fassa (ITA) – Super-G Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:98ee3c051f64a28ed5e5f009@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:🎿 Adelboden (SUI) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:5232269404ecb5ac6a45e433@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270109
 DTEND;VALUE=DATE:20270110
 SUMMARY:🎿 Adelboden (SUI) – Riesentorlauf Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:78476a59c5cd0505b8669fa6@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:🎿 Wengen (SUI) – Super-G Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:622502912db20c40b6be4a2e@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
 SUMMARY:🎿 Wengen (SUI) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:d3618262044411d386c7d666@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
 SUMMARY:🎿 Wengen (SUI) – Abfahrt Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:3ae8a41da7da47192cf71dd0@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:🎿 Cortina d'Ampezzo (ITA) – Abfahrt Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:88d3ec041fd93b0c2f8c47e5@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
 SUMMARY:🎿 Cortina d'Ampezzo (ITA) – Abfahrt Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:e38dc8383f95e38cefd9a1d8@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
 SUMMARY:🎿 Cortina d'Ampezzo (ITA) – Super-G Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:bd001fba0b87ae7680116d2e@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270119
 DTEND;VALUE=DATE:20270120
 SUMMARY:🎿 Kronplatz (ITA) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:6f0356392188c67801365d65@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270122
 DTEND;VALUE=DATE:20270123
 SUMMARY:🎿 Kitzbuehel (AUT) – Super-G Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:e9a7e88910fa41fb8e4f692c@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270124
 SUMMARY:🎿 Kitzbuehel (AUT) – Abfahrt Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:d76df1446299b4a13ca6869f@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270124
 DTEND;VALUE=DATE:20270125
 SUMMARY:🎿 Kitzbuehel (AUT) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:c075047e07422404e2aedd85@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270124
 DTEND;VALUE=DATE:20270125
 SUMMARY:🎿 Jasna (SVK) – Slalom Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:4b7086d25abd36f777a6de19@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270124
 SUMMARY:🎿 Jasna (SVK) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:f4e1c0f0a0a5dee20d71f4b1@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270126
 DTEND;VALUE=DATE:20270127
 SUMMARY:🎿 Schladming (AUT) – Riesentorlauf Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:2057eb893241686d52a14040@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:🎿 Schladming (AUT) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:477df5e00b07c8ef9625f65b@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270129
 DTEND;VALUE=DATE:20270130
 SUMMARY:🎿 Kranjska Gora (SLO) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:d5ddbef530af357f68f7c82d@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
 SUMMARY:🎿 Kranjska Gora (SLO) – Slalom Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:869894e69706aef2350bdcad@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
 SUMMARY:🎿 Chamonix (FRA) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:1b9d528c7a798cc46f24f786@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270220
 DTEND;VALUE=DATE:20270221
 SUMMARY:🎿 Garmisch-Partenkirchen (GER) – Abfahrt Herren | vorläu
  fig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:759d797961cfbe7a69482ebd@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
 SUMMARY:🎿 Garmisch-Partenkirchen (GER) – Super-G Herren | vorläu
  fig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:ec00132a006e78bd841ea0f7@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
 SUMMARY:🎿 Lenzerheide (SUI) – Super-G Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:ae2c9b596e1f6fc5527b70eb@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270220
 DTEND;VALUE=DATE:20270221
 SUMMARY:🎿 Lenzerheide (SUI) – Super-G Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:e9d9093bcabe7a7e38202048@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
 SUMMARY:🎿 Garmisch-Partenkirchen (GER) – Abfahrt Damen | vorläuf
  ig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:2ccf1e3fe56b56c78d677f54@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:🎿 Garmisch-Partenkirchen (GER) – Abfahrt Damen | vorläuf
  ig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:cbde47da03dc86e8c9e6a695@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
 SUMMARY:🎿 Saalbach (AUT) – Abfahrt Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:5966d2789ddc20e838df0b47@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:🎿 Saalbach (AUT) – Super-G Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:582f2b6b4e0b78e874038334@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270306
 DTEND;VALUE=DATE:20270307
 SUMMARY:🎿 Kvitfjell (NOR) – Abfahrt Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:3dd4fb0ddfdc93800c8f292f@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:🎿 Kvitfjell (NOR) – Super-G Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:105da9d1d2d02dd2c52e1879@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270306
 DTEND;VALUE=DATE:20270307
 SUMMARY:🎿 Soldeu (AND) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:aefa3b63d484d322101d945e@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:🎿 Soldeu (AND) – Slalom Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:9c9565cc5309b9c0442c60b5@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270314
 SUMMARY:🎿 Narvik (TBC) (NOR) – Super-G Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:b737208303cd3175165561d2@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270312
 DTEND;VALUE=DATE:20270313
 SUMMARY:🎿 Narvik (TBC) (NOR) – Abfahrt Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:96cda004376711abe7841a18@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270314
 SUMMARY:🎿 Are (SWE) – Riesentorlauf Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:535075df8e044d57592c5bf2@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270314
 DTEND;VALUE=DATE:20270315
 SUMMARY:🎿 Are (SWE) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:b48564c8546fb9d36b5a0fd3@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:🎿 Sun Valley (USA) – Abfahrt Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:c7da3fbbd52406131d9f7876@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:🎿 Sun Valley (USA) – Abfahrt Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:3fd22ed921a3577ed38815bf@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:🎿 Sun Valley (USA) – Super-G Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:11767a4884d9f8a5247ceb24@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:🎿 Sun Valley (USA) – Super-G Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:9ae0a15a8ba3c489e54ef572@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270323
 DTEND;VALUE=DATE:20270324
 SUMMARY:🎿 Sun Valley (USA) – Riesentorlauf Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:21ded70121014a8d358f4ac5@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270324
 DTEND;VALUE=DATE:20270325
 SUMMARY:🎿 Sun Valley (USA) – Riesentorlauf Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:b79782cdf3855a661df093d2@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270325
 DTEND;VALUE=DATE:20270326
 SUMMARY:🎿 Sun Valley (USA) – Slalom Damen | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 BEGIN:VEVENT
 UID:a8a1d8a736d04f2b94b31fe0@orf-ski-kalender
-DTSTAMP:20261014T045413Z
+DTSTAMP:20261014T051548Z
 DTSTART;VALUE=DATE:20270325
 DTEND;VALUE=DATE:20270326
 SUMMARY:🎿 Sun Valley (USA) – Slalom Herren | vorläufig
-DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nORF-Sendezeit noch
-  nicht veröffentlicht oder erkannt.\nGanztägiger Platzhalter\, kein
- e bestätigte Uhrzeit.
+DESCRIPTION:Offizieller FIS-Weltcuptermin 2026/27.\nNoch keine bestät
+ igte Start- oder ORF-Sendezeit.
 END:VEVENT
 END:VCALENDAR
