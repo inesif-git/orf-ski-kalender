@@ -10,139 +10,172 @@ from html.parser import HTMLParser
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-TZ = ZoneInfo('Europe/Vienna')
+TZ = ZoneInfo("Europe/Vienna")
 NOW = datetime.now(timezone.utc)
 TODAY = NOW.astimezone(TZ).date()
-OUTPUT = Path('ski-weltcup.ics')
-START_FILE = Path('rennstarts.json')
-FIS = ('https://www.fis-ski.com/DB/services/public/'
-       'icalendar-feed-fis-events.html?seasoncode=2027&sectorcode=AL&categorycode=WC')
-ORF = 'https://sport.orf.at/'
-WM = [
-    ('2027-02-01', 'Team-Parallel Mixed', 'Mixed', ['11:15']),
-    ('2027-02-04', 'Super-G', 'Damen', ['11:15']),
-    ('2027-02-05', 'Super-G', 'Herren', ['11:15']),
-    ('2027-02-06', 'Abfahrt', 'Damen', ['11:15']),
-    ('2027-02-07', 'Abfahrt', 'Herren', ['11:15']),
-    ('2027-02-09', 'Team-Kombination', 'Damen', ['10:00', '13:30']),
-    ('2027-02-10', 'Team-Kombination', 'Herren', ['10:00', '13:30']),
-    ('2027-02-11', 'Riesentorlauf', 'Damen', ['10:00', '13:30']),
-    ('2027-02-12', 'Riesentorlauf', 'Herren', ['10:00', '13:30']),
-    ('2027-02-13', 'Slalom', 'Damen', ['10:00', '13:30']),
-    ('2027-02-14', 'Slalom', 'Herren', ['10:00', '13:30']),
-]
 
-# Sicherheitswerte für die bestätigten Sölden-Übertragungen.
-# Nur verwenden, wenn das Rennen vorhanden ist.
-SOELDEN = {
-    ('2026-10-24', 'Damen', 1): '09:30',
-    ('2026-10-24', 'Damen', 2): '12:45',
-    ('2026-10-25', 'Herren', 1): '09:25',
-    ('2026-10-25', 'Herren', 2): '12:35',
+OUTPUT = Path("ski-weltcup.ics")
+START_FILE = Path("rennstarts.json")
+
+FIS_URL = (
+    "https://www.fis-ski.com/DB/services/public/"
+    "icalendar-feed-fis-events.html?"
+    "seasoncode=2027&sectorcode=AL&categorycode=WC"
+)
+
+ORF_URL = "https://sport.orf.at/"
+
+EPG = {
+    "ORF 1": "438442",
+    "ORF SPORT+": "76756",
 }
 
-MONTHS = dict(zip(
-    ('janner', 'januar', 'februar', 'marz', 'april', 'mai',
-     'juni', 'juli', 'august', 'september', 'oktober',
-     'november', 'dezember'),
-    (1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
-))
+WM = [
+    ("2027-02-01", "Team-Parallel Mixed", "Mixed", ["11:15"]),
+    ("2027-02-04", "Super-G", "Damen", ["11:15"]),
+    ("2027-02-05", "Super-G", "Herren", ["11:15"]),
+    ("2027-02-06", "Abfahrt", "Damen", ["11:15"]),
+    ("2027-02-07", "Abfahrt", "Herren", ["11:15"]),
+    ("2027-02-09", "Team-Kombination", "Damen", ["10:00", "13:30"]),
+    ("2027-02-10", "Team-Kombination", "Herren", ["10:00", "13:30"]),
+    ("2027-02-11", "Riesentorlauf", "Damen", ["10:00", "13:30"]),
+    ("2027-02-12", "Riesentorlauf", "Herren", ["10:00", "13:30"]),
+    ("2027-02-13", "Slalom", "Damen", ["10:00", "13:30"]),
+    ("2027-02-14", "Slalom", "Herren", ["10:00", "13:30"]),
+]
+
+SOELDEN = {
+    ("2026-10-24", "Damen", 1): "09:30",
+    ("2026-10-24", "Damen", 2): "12:45",
+    ("2026-10-25", "Herren", 1): "09:25",
+    ("2026-10-25", "Herren", 2): "12:35",
+}
+
+MONTHS = {
+    "janner": 1, "januar": 1, "februar": 2,
+    "marz": 3, "april": 4, "mai": 5,
+    "juni": 6, "juli": 7, "august": 8,
+    "september": 9, "oktober": 10,
+    "november": 11, "dezember": 12,
+}
 
 
 def fetch(url):
-    req = urllib.request.Request(
+    request = urllib.request.Request(
         url,
-        headers={'User-Agent': 'Mozilla/5.0'}
+        headers={"User-Agent": "Mozilla/5.0"},
     )
-    with urllib.request.urlopen(req, timeout=25) as response:
+    with urllib.request.urlopen(
+        request, timeout=25
+    ) as response:
         return response.read().decode(
-            'utf-8-sig', errors='replace'
+            "utf-8-sig", errors="replace"
         )
 
 
-def norm(s):
-    s = unicodedata.normalize('NFKD', str(s).casefold())
-    s = ''.join(
-        c for c in s
+def norm(value):
+    text = unicodedata.normalize(
+        "NFKD", str(value).casefold()
+    )
+    text = "".join(
+        c for c in text
         if not unicodedata.combining(c)
     )
-    s = (
-        s.replace('ß', 'ss')
-        .replace('oe', 'o')
-        .replace('ae', 'a')
-        .replace('ue', 'u')
+    text = (
+        text.replace("ß", "ss")
+        .replace("oe", "o")
+        .replace("ae", "a")
+        .replace("ue", "u")
     )
-    return re.sub(r'[^a-z0-9]+', ' ', s).strip()
+    return re.sub(
+        r"[^a-z0-9]+", " ", text
+    ).strip()
 
 
-def discipline(s):
-    s = norm(s)
+def discipline(value):
+    text = norm(value)
 
-    if 'team kombination' in s or 'team combined' in s:
-        return 'Team-Kombination'
+    if (
+        "team kombination" in text
+        or "team combined" in text
+    ):
+        return "Team-Kombination"
 
-    if any(x in s for x in (
-        'team parallel', 'mixed team', 'team event'
+    if any(x in text for x in (
+        "team parallel",
+        "mixed team",
+        "team event",
     )):
-        return 'Team-Parallel Mixed'
+        return "Team-Parallel Mixed"
 
-    if any(x in s for x in (
-        'giant slalom', 'riesentorlauf', 'riesenslalom'
+    if any(x in text for x in (
+        "giant slalom",
+        "riesentorlauf",
+        "riesenslalom",
     )):
-        return 'Riesentorlauf'
+        return "Riesentorlauf"
 
-    if 'super g' in s:
-        return 'Super-G'
+    if "super g" in text:
+        return "Super-G"
 
-    if 'downhill' in s or 'abfahrt' in s:
-        return 'Abfahrt'
+    if (
+        "downhill" in text
+        or "abfahrt" in text
+    ):
+        return "Abfahrt"
 
-    if re.search(r'\bslalom\b', s):
-        return 'Slalom'
+    if re.search(r"\bslalom\b", text):
+        return "Slalom"
 
     return None
 
 
-def clock(s, day):
-    if s is None:
+def clock(value, day=None):
+    if value is None:
         return None
 
-    s = str(s).strip()
+    text = str(value).strip()
 
-    if re.fullmatch(r'\d{1,2}[:.]\d{2}', s):
-        h, m = [
-            int(x) for x in re.split('[:.]', s)
-        ]
+    if day and re.fullmatch(
+        r"\d{1,2}[:.]\d{2}", text
+    ):
+        hour, minute = map(
+            int, re.split(r"[:.]", text)
+        )
 
-        if h > 23 or m > 59:
+        if hour > 23 or minute > 59:
             return None
 
-        return datetime.fromisoformat(day).replace(
-            hour=h,
-            minute=m,
-            tzinfo=TZ
+        return datetime.combine(
+            date.fromisoformat(day),
+            datetime.min.time(),
+            TZ,
+        ).replace(
+            hour=hour,
+            minute=minute,
         ).astimezone(timezone.utc)
 
     try:
-        t = datetime.fromisoformat(
-            s.replace('Z', '+00:00')
+        dt = datetime.fromisoformat(
+            text.replace("Z", "+00:00")
         )
-        return (
-            t if t.tzinfo
-            else t.replace(tzinfo=TZ)
-        ).astimezone(timezone.utc)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=TZ)
+        return dt.astimezone(timezone.utc)
 
     except ValueError:
         return None
 
 
-def unfold(text):
+def unfold(raw):
     lines = []
 
-    for line in text.replace(
-        '\r\n', '\n'
-    ).split('\n'):
-        if line.startswith((' ', '\t')) and lines:
+    for line in raw.replace(
+        "\r\n", "\n"
+    ).split("\n"):
+        if line.startswith(
+            (" ", "\t")
+        ) and lines:
             lines[-1] += line[1:]
         else:
             lines.append(line)
@@ -150,1052 +183,1316 @@ def unfold(text):
     return lines
 
 
-def vevents(text):
+def vevents(raw):
     events = []
-    item = None
+    current = None
 
-    for line in unfold(text):
-        if line == 'BEGIN:VEVENT':
-            item = {}
+    for line in unfold(raw):
+        if line == "BEGIN:VEVENT":
+            current = {}
 
-        elif line == 'END:VEVENT':
-            if item is not None:
-                events.append(item)
-            item = None
+        elif line == "END:VEVENT":
+            if current is not None:
+                events.append(current)
+            current = None
 
-        elif item is not None and ':' in line:
-            key, val = line.split(':', 1)
+        elif current is not None and ":" in line:
+            key, value = line.split(":", 1)
+            base = key.split(";", 1)[0]
 
-            if key.startswith('DTSTART'):
-                item['DTSTART'] = val
-
-            elif key in (
-                'SUMMARY',
-                'DESCRIPTION',
-                'UID',
-                'X-ORF-RACE-ID'
+            if base in (
+                "DTSTART", "DTEND", "UID",
+                "SUMMARY", "DESCRIPTION",
+                "X-ORF-RACE-ID",
             ):
-                item[key] = (
-                    val.replace('\\,', ',')
-                    .replace('\\n', ' ')
+                current[base] = (
+                    value.replace("\\,", ",")
+                    .replace("\\n", "\n")
                 )
+                if base in ("DTSTART", "DTEND"):
+                    current[base + "_FIELD"] = key
 
     return events
 
 
+def event_day(event):
+    value = event.get("DTSTART", "")
+
+    if not re.match(r"^\d{8}", value):
+        return None
+
+    try:
+        if (
+            "VALUE=DATE" in event.get(
+                "DTSTART_FIELD", ""
+            )
+            or len(value) == 8
+        ):
+            return datetime.strptime(
+                value[:8], "%Y%m%d"
+            ).date().isoformat()
+
+        if value.endswith("Z"):
+            dt = datetime.strptime(
+                value, "%Y%m%dT%H%M%SZ"
+            ).replace(tzinfo=timezone.utc)
+        else:
+            dt = datetime.strptime(
+                value[:15], "%Y%m%dT%H%M%S"
+            ).replace(tzinfo=TZ)
+
+        return dt.astimezone(
+            TZ
+        ).date().isoformat()
+
+    except ValueError:
+        return None
+
+
 def new_race(day, venue, event, gender, wm=False):
     return {
-        'datum': day,
-        'ort': venue,
-        'disziplin': event,
-        'geschlecht': gender,
-        'wm': wm,
-        'starts': [],
-        'sendungen': [],
-        'uid1': None,
-        'uid2': None
+        "datum": day,
+        "ort": venue,
+        "disziplin": event,
+        "geschlecht": gender,
+        "wm": wm,
+        "starts": [],
+        "tv": [],
+        "uids": {},
     }
 
 
-def race_id(r):
-    return '|'.join((
-        'WM' if r['wm'] else 'WC',
-        r['datum'],
-        r['geschlecht'],
-        r['disziplin'],
-        norm(r['ort'])
+def race_key(race):
+    # Gleicher Schlüssel trotz
+    # wechselnder Schreibweise des Rennortes.
+    return "|".join((
+        "WM" if race["wm"] else "WC",
+        race["datum"],
+        race["geschlecht"],
+        race["disziplin"],
     ))
 
 
-def old_calendar():
-    # Bisherige Einträge und IDs wiederverwenden.
+def old_races():
     if not OUTPUT.exists():
         return {}
 
-    previous = {}
+    result = {}
 
-    for e in vevents(
-        OUTPUT.read_text(encoding='utf-8-sig')
+    for event in vevents(
+        OUTPUT.read_text(
+            encoding="utf-8-sig"
+        )
     ):
-        title = e.get('SUMMARY', '')
+        title = event.get("SUMMARY", "")
+        desc = event.get("DESCRIPTION", "")
 
         is_wm = (
-            'Ski-WM' in title
-            or 'Ski-WM' in e.get('DESCRIPTION', '')
+            "Ski-WM" in title
+            or "Ski-WM" in desc
         )
 
-        dayraw = e.get('DTSTART', '')[:8]
+        day = event_day(event)
+        kind = discipline(title)
 
-        try:
-            day = datetime.strptime(
-                dayraw, '%Y%m%d'
-            ).date().isoformat()
-        except ValueError:
+        if not day or not kind:
             continue
 
-        plain = title.replace('\\,', ',')
-        event = discipline(plain)
+        gender = next((
+            g for g in (
+                "Damen", "Herren", "Mixed"
+            )
+            if re.search(
+                r"\b" + g + r"\b",
+                title, re.I
+            )
+        ), None)
 
-        if not event:
-            continue
-
-        if re.search(r'\bDamen\b', plain, re.I):
-            gender = 'Damen'
-        elif re.search(r'\bHerren\b', plain, re.I):
-            gender = 'Herren'
-        else:
+        if not gender:
             continue
 
         if is_wm:
-            venue = 'Crans-Montana'
+            venue = "Crans-Montana"
         else:
             match = re.match(
-                r'🎿\s*(.*?)\s*[–-]\s*',
-                plain
+                r"🎿\s*(.*?)\s*[–-]\s*",
+                title
             )
             if not match:
                 continue
             venue = match.group(1).strip()
 
-        r = new_race(
-            day, venue, event, gender,
-            wm=is_wm
+        race = new_race(
+            day, venue, kind, gender, is_wm
         )
 
-        key = (
-            e.get('X-ORF-RACE-ID')
-            or race_id(r)
+        key = race_key(race)
+        previous = result.setdefault(
+            key, race
         )
 
-        item = previous.setdefault(key, r)
-        uid = e.get('UID')
+        uid = event.get("UID")
 
-        if '2. Durchgang' in plain and uid:
-            item['uid2'] = uid
-        elif uid:
-            item['uid1'] = uid
+        if uid:
+            second = (
+                bool(re.search(
+                    r"2\.\s*Durchgang",
+                    title
+                ))
+                or (
+                    kind == "Team-Kombination"
+                    and "| Slalom" in title
+                )
+            )
+            previous["uids"][
+                2 if second else 1
+            ] = uid
 
-    return previous
+    return result
 
 
 def fis_races():
-    raw = fetch(FIS)
+    raw = fetch(FIS_URL)
 
-    if 'BEGIN:VCALENDAR' not in raw:
+    if "BEGIN:VCALENDAR" not in raw:
         raise RuntimeError(
-            'FIS nicht lesbar: '
-            'alter Kalender bleibt bestehen'
+            "FIS-Kalender nicht lesbar. "
+            "Bestehende Datei bleibt erhalten."
         )
 
     races = []
 
-    for e in vevents(raw):
-        try:
-            day = datetime.strptime(
-                e.get('DTSTART', '')[:8],
-                '%Y%m%d'
-            ).date().isoformat()
-        except ValueError:
+    for event in vevents(raw):
+        day = event_day(event)
+        desc = event.get(
+            "DESCRIPTION", ""
+        )
+
+        if re.search(
+            r"Gender:\s*Women\b",
+            desc, re.I
+        ):
+            gender = "Damen"
+
+        elif re.search(
+            r"Gender:\s*Men\b",
+            desc, re.I
+        ):
+            gender = "Herren"
+
+        else:
             continue
 
-        desc = e.get('DESCRIPTION', '')
-
-        gender = (
-            'Damen'
-            if re.search(
-                r'Gender:\s*Women\b',
-                desc, re.I
-            )
-            else 'Herren'
-            if re.search(
-                r'Gender:\s*Men\b',
-                desc, re.I
-            )
-            else None
+        summary = event.get(
+            "SUMMARY", ""
+        )
+        kind = discipline(
+            summary + " " + desc
         )
 
-        summary = e.get('SUMMARY', '')
-        event = discipline(
-            summary + ' ' + desc
-        )
-
-        if gender is None or event is None:
+        if not day or not kind:
             continue
 
         venue = re.split(
-            r'\s+[-–]\s+',
+            r"\s+[-–]\s+",
             summary
         )[0].strip()
 
-        races.append(
-            new_race(day, venue, event, gender)
-        )
+        races.append(new_race(
+            day, venue, kind, gender
+        ))
 
     if not races:
         raise RuntimeError(
-            'Keine FIS-Rennen: '
-            'alter Kalender bleibt bestehen'
+            "Keine FIS-Rennen gefunden. "
+            "Bestehende Datei bleibt erhalten."
         )
 
     return races
 
 
-def apply_start_file(races):
+def add_starts(races):
     if not START_FILE.exists():
         return
 
     data = json.loads(
         START_FILE.read_text(
-            encoding='utf-8'
+            encoding="utf-8"
         )
     )
 
-    for r in races:
-        val = data.get(r['datum'], {})
+    for race in races:
+        value = data.get(
+            race["datum"], {}
+        )
 
         if (
-            not isinstance(val, dict)
-            or val.get('geschlecht') != r['geschlecht']
-            or val.get('disziplin') != r['disziplin']
+            not isinstance(value, dict)
+            or value.get("geschlecht")
+            != race["geschlecht"]
+            or value.get("disziplin")
+            != race["disziplin"]
         ):
             continue
 
         for key in (
-            'erster_lauf',
-            'zweiter_lauf',
-            'start',
-            'startzeit'
+            "erster_lauf",
+            "zweiter_lauf",
+            "start",
+            "startzeit",
         ):
             t = clock(
-                val.get(key),
-                r['datum']
+                value.get(key),
+                race["datum"]
             )
 
-            if t and t not in r['starts']:
-                r['starts'].append(t)
+            if (
+                t
+                and t not in race["starts"]
+            ):
+                race["starts"].append(t)
 
-        r['starts'].sort()
+        race["starts"].sort()
 
 
-class TextExtractor(HTMLParser):
+def number_of_leg(text):
+    match = re.search(
+        r"\b([12]|erster|erste|"
+        r"zweiter|zweite)\s*"
+        r"(?:durchgang|lauf)\b",
+        norm(text)
+    )
+
+    if not match:
+        return None
+
+    return (
+        1 if match.group(1) in (
+            "1", "erster", "erste"
+        )
+        else 2
+    )
+
+
+def is_live(text):
+    value = norm(text)
+
+    if re.search(
+        r"\b(wiederholung|highlight|"
+        r"highlights|zusammenfassung|"
+        r"replay|ruckblick)\b",
+        value
+    ):
+        return False
+
+    return bool(re.search(
+        r"\b(live|direkt|countdown|"
+        r"durchgang|lauf)\b",
+        value
+    ))
+
+
+def match_race(program, races):
+    candidates = [
+        r for r in races
+        if r["datum"] == program["datum"]
+    ]
+
+    if program.get("geschlecht"):
+        candidates = [
+            r for r in candidates
+            if r["geschlecht"]
+            == program["geschlecht"]
+        ]
+
+    if program.get("disziplin"):
+        candidates = [
+            r for r in candidates
+            if r["disziplin"]
+            == program["disziplin"]
+        ]
+
+    text = norm(
+        program.get("text", "")
+    )
+
+    if "weltcup" in text:
+        candidates = [
+            r for r in candidates
+            if not r["wm"]
+        ]
+
+    elif any(x in text for x in (
+        "weltmeisterschaft",
+        "ski wm",
+        "crans montana",
+    )):
+        candidates = [
+            r for r in candidates
+            if r["wm"]
+        ]
+
+    if len(candidates) > 1:
+        venues = [
+            r for r in candidates
+            if (
+                norm(r["ort"])
+                and norm(r["ort"]) in text
+            )
+        ]
+        if venues:
+            candidates = venues
+
+    return (
+        candidates[0]
+        if len(candidates) == 1
+        else None
+    )
+
+
+class VisibleText(HTMLParser):
     def __init__(self):
         super().__init__()
         self.parts = []
         self.hidden = 0
 
     def handle_starttag(self, tag, attrs):
-        if tag in ('style', 'script'):
+        if tag in ("script", "style"):
             self.hidden += 1
 
         if tag in (
-            'p', 'li', 'div', 'tr',
-            'br', 'h2', 'h3', 'h4'
+            "p", "li", "div", "tr",
+            "br", "h2", "h3", "h4"
         ):
-            self.parts.append(' ')
+            self.parts.append("\n")
 
     def handle_endtag(self, tag):
         if (
-            tag in ('style', 'script')
+            tag in ("script", "style")
             and self.hidden
         ):
             self.hidden -= 1
 
         if tag in (
-            'p', 'li', 'div', 'tr',
-            'br', 'h2', 'h3', 'h4'
+            "p", "li", "div", "tr",
+            "br", "h2", "h3", "h4"
         ):
-            self.parts.append(' ')
+            self.parts.append("\n")
 
     def handle_data(self, data):
         if not self.hidden:
             self.parts.append(data)
 
 
-def orf_program():
-    # ORF-Sendeplan einlesen.
+def orf_official():
+    parser = VisibleText()
+    parser.feed(fetch(ORF_URL))
 
-    parser = TextExtractor()
-    parser.feed(fetch(ORF))
-
-    plain = re.sub(
-        r'\s+',
-        ' ',
-        html.unescape(
-            ' '.join(parser.parts)
-        )
+    text = html.unescape(
+        "".join(parser.parts)
     )
 
-    head = re.compile(
-        r'\b(?:Montag|Dienstag|Mittwoch|'
-        r'Donnerstag|Freitag|Samstag|Sonntag),\s*'
-        r'(\d{1,2})\.\s*'
-        r'([A-Za-zÄÖÜäöüß]+)',
-        re.I
-    )
-
-    rows = re.compile(
-        r'(\d{1,2})[.:](\d{2})\s*Uhr'
-        r'\s*\|\s*Ski\s*alpin\s*\|'
-        r'\s*(.*?)\s*\|\s*'
-        r'(ORF\s*1|ORF1|OSP|ORF\s*Sport\s*\+)',
+    heading = re.compile(
+        r"\b(?:Montag|Dienstag|Mittwoch|"
+        r"Donnerstag|Freitag|Samstag|"
+        r"Sonntag),\s*"
+        r"(\d{1,2})\.\s*"
+        r"([A-Za-zÄÖÜäöüß]+)",
         re.I
     )
 
     headings = list(
-        head.finditer(plain)
+        heading.finditer(text)
+    )
+
+    row = re.compile(
+        r"(\d{1,2})[.:](\d{2})\s*Uhr"
+        r"\s*\|\s*Ski\s*alpin\s*\|"
+        r"\s*(.{4,220}?)\s*\|\s*"
+        r"(ORF\s*1|ORF1|OSP|"
+        r"ORF\s*Sport\s*\+)",
+        re.I
     )
 
     program = []
-    year = TODAY.year
+    covered = set()
 
     for i, h in enumerate(headings):
         month = MONTHS.get(
             norm(h.group(2))
         )
 
-        if month is None:
+        if not month:
             continue
 
+        year = TODAY.year
+
+        if TODAY.month == 12 and month == 1:
+            year += 1
+
+        if TODAY.month == 1 and month == 12:
+            year -= 1
+
         try:
-            d = date(
+            day = date(
                 year,
                 month,
                 int(h.group(1))
-            )
+            ).isoformat()
         except ValueError:
             continue
 
-        if TODAY.month == 12 and month == 1:
-            d = d.replace(
-                year=year + 1
-            )
-        elif TODAY.month == 1 and month == 12:
-            d = d.replace(
-                year=year - 1
-            )
+        covered.add(day)
 
-        section = plain[
-            h.end():
+        end_position = (
             headings[i + 1].start()
             if i + 1 < len(headings)
-            else len(plain)
+            else len(text)
+        )
+
+        section = text[
+            h.end():end_position
         ]
 
-        for m in rows.finditer(section):
-            desc = m.group(3)
+        for match in row.finditer(section):
+            desc = " ".join(
+                match.group(3).split()
+            )
+
+            if not is_live(desc):
+                continue
+
+            kind = discipline(desc)
 
             if re.search(
-                r'wiederholung|highlights?|'
-                r'zusammenfassung|replay',
-                desc,
-                re.I
+                r"\b(damen|frauen|women)\b",
+                desc, re.I
+            ):
+                gender = "Damen"
+
+            elif re.search(
+                r"\b(herren|männer|men)\b",
+                desc, re.I
+            ):
+                gender = "Herren"
+
+            elif re.search(
+                r"\bmixed\b",
+                desc, re.I
+            ):
+                gender = "Mixed"
+
+            else:
+                gender = None
+
+            if not kind or not gender:
+                continue
+
+            begin = clock(
+                match.group(1)
+                + ":"
+                + match.group(2),
+                day
+            )
+
+            if not begin:
+                continue
+
+            # Nur ausdrücklich erkennbare
+            # Endzeiten werden als bestätigt
+            # übernommen.
+            end = None
+
+            following = section[
+                match.end():
+                match.end() + 50
+            ]
+
+            explicit = re.search(
+                r"(?:bis|–|-)\s*"
+                r"(\d{1,2})[.:](\d{2})"
+                r"\s*Uhr",
+                following, re.I
+            )
+
+            if explicit:
+                end = clock(
+                    explicit.group(1)
+                    + ":"
+                    + explicit.group(2),
+                    day
+                )
+
+                if end and end <= begin:
+                    end += timedelta(days=1)
+
+            program.append({
+                "datum": day,
+                "geschlecht": gender,
+                "disziplin": kind,
+                "text": desc,
+                "lauf": number_of_leg(desc),
+                "beginn": begin,
+                "ende": end,
+                "sender": (
+                    "ORF 1"
+                    if "1" in match.group(4)
+                    else "ORF SPORT+"
+                ),
+                "quelle": "ORF-Sport",
+            })
+
+    if not headings:
+        raise ValueError(
+            "Kein datierter ORF-Sendeplan "
+            "gefunden"
+        )
+
+    return program, covered
+
+
+def epg_program():
+    program = []
+    covered = set()
+
+    for station, channel in EPG.items():
+        try:
+            data = json.loads(fetch(
+                "https://epg.pw/api/epg.json?"
+                "channel_id=" + channel
+            ))
+
+            entries = data.get(
+                "epg_list", []
+            )
+
+            if not isinstance(
+                entries, list
             ):
                 continue
 
-            gender = (
-                'Damen'
-                if re.search(
-                    r'\b(damen|frauen)\b',
-                    desc, re.I
+            timeline = []
+
+            for entry in entries:
+                begin = clock(
+                    entry.get("start_date")
                 )
-                else 'Herren'
-                if re.search(
-                    r'\b(herren|männer)\b',
-                    desc, re.I
-                )
-                else 'Mixed'
-                if re.search(
-                    r'\bmixed\b',
-                    desc, re.I
-                )
-                else None
-            )
-
-            event = discipline(desc)
-
-            if not gender or not event:
-                continue
-
-            number_match = re.search(
-                r'\b([12])\.\s*'
-                r'(?:durchgang|lauf)\b',
-                desc,
-                re.I
-            )
-
-            number = (
-                int(number_match.group(1))
-                if number_match
-                else None
-            )
-
-            begin = clock(
-                m.group(1) + ':' + m.group(2),
-                d.isoformat()
-            )
-
-            if begin is None:
-                continue
-
-            program.append({
-                'datum': d.isoformat(),
-                'geschlecht': gender,
-                'disziplin': event,
-                'text': desc,
-                'lauf': number,
-                'beginn': begin,
-                'sender': (
-                    'ORF 1'
-                    if '1' in m.group(4)
-                    else 'ORF SPORT+'
-                )
-            })
-
-    covered_dates = set()
-
-    for h in headings:
-        month = MONTHS.get(
-            norm(h.group(2))
-        )
-
-        if month is not None:
-            try:
-                d = date(
-                    year,
-                    month,
-                    int(h.group(1))
-                )
-
-                if TODAY.month == 12 and month == 1:
-                    d = d.replace(
-                        year=year + 1
+                if begin:
+                    timeline.append(
+                        (begin, entry)
                     )
 
-                if TODAY.month == 1 and month == 12:
-                    d = d.replace(
-                        year=year - 1
-                    )
+            timeline.sort(
+                key=lambda x: x[0]
+            )
 
-                covered_dates.add(
-                    d.isoformat()
+            for begin, entry in timeline:
+                covered.add(
+                    begin.astimezone(
+                        TZ
+                    ).date().isoformat()
                 )
 
-            except ValueError:
-                pass
+            hits = 0
 
-    if not headings or not covered_dates:
-        raise ValueError(
-            'ORF-Programm nicht '
-            'zuverlässig lesbar'
-        )
+            for i, (begin, entry) in enumerate(
+                timeline
+            ):
+                text = (
+                    str(entry.get("title") or "")
+                    + " "
+                    + str(entry.get("desc") or "")
+                )
 
-    return program, covered_dates
+                if (
+                    not is_live(text)
+                    or not re.search(
+                        r"ski|slalom|abfahrt|"
+                        r"super[- ]?g",
+                        text, re.I
+                    )
+                ):
+                    continue
+
+                kind = discipline(text)
+
+                if re.search(
+                    r"\b(damen|frauen|women)\b",
+                    text, re.I
+                ):
+                    gender = "Damen"
+
+                elif re.search(
+                    r"\b(herren|männer|men)\b",
+                    text, re.I
+                ):
+                    gender = "Herren"
+
+                elif re.search(
+                    r"\bmixed\b",
+                    text, re.I
+                ):
+                    gender = "Mixed"
+
+                else:
+                    gender = None
+
+                if not kind or not gender:
+                    continue
+
+                # Das Ende der Sendung ist
+                # entweder direkt angegeben
+                # oder der Beginn der nächsten
+                # Sendung desselben Senders.
+                end = clock(
+                    entry.get("end_date")
+                )
+
+                if (
+                    end is None
+                    and i + 1 < len(timeline)
+                ):
+                    end = timeline[i + 1][0]
+
+                if end and (
+                    end <= begin
+                    or end - begin
+                    > timedelta(hours=6)
+                ):
+                    end = None
+
+                program.append({
+                    "datum": (
+                        begin.astimezone(TZ)
+                        .date().isoformat()
+                    ),
+                    "geschlecht": gender,
+                    "disziplin": kind,
+                    "text": text,
+                    "lauf": number_of_leg(text),
+                    "beginn": begin,
+                    "ende": end,
+                    "sender": station,
+                    "quelle": "EPG",
+                })
+
+                hits += 1
+
+            print(
+                station,
+                "- EPG-Sendungen erkannt:",
+                hits
+            )
+
+        except Exception as exc:
+            print(
+                station,
+                "- EPG nicht lesbar:",
+                exc
+            )
+
+    return program, covered
 
 
-def same_race(r, p):
-    if (
-        r['datum'],
-        r['geschlecht'],
-        r['disziplin']
-    ) != (
-        p['datum'],
-        p['geschlecht'],
-        p['disziplin']
-    ):
-        return False
-
-    venue = norm(
-        r['ort']
-    ).split(' ')[0]
-
-    return (
-        not venue
-        or venue in norm(p['text'])
-        or len(venue) < 4
+def add_broadcast(race, program):
+    entry = (
+        program["beginn"],
+        program["ende"],
+        program["sender"],
+        program["lauf"],
+        program["quelle"],
     )
 
-
-def attach_orf(races, program):
-    hits = 0
-
-    for p in program:
-        candidates = [
-            r for r in races
-            if same_race(r, p)
-        ]
-
-        if len(candidates) != 1:
-            candidates = [
-                r for r in races
-                if (
-                    r['datum'],
-                    r['geschlecht'],
-                    r['disziplin']
-                ) == (
-                    p['datum'],
-                    p['geschlecht'],
-                    p['disziplin']
-                )
-            ]
-
-        if len(candidates) != 1:
-            continue
-
-        r = candidates[0]
-
-        item = (
-            p['beginn'],
-            p['beginn'] + timedelta(
-                minutes=90
-            ),
-            p['sender'],
-            p['lauf']
-        )
-
-        if item not in r['sendungen']:
-            r['sendungen'].append(item)
-            hits += 1
-
-    return hits
+    if entry not in race["tv"]:
+        race["tv"].append(entry)
 
 
-def add_fallback_soelden(races):
+def add_soelden(races):
     count = 0
 
-    for r in races:
+    for race in races:
         if (
-            r['wm']
-            or r['disziplin'] != 'Riesentorlauf'
-            or 'solden' not in norm(r['ort'])
+            race["wm"]
+            or race["disziplin"]
+            != "Riesentorlauf"
+            or "solden" not in norm(
+                race["ort"]
+            )
         ):
             continue
 
         for number in (1, 2):
             value = SOELDEN.get((
-                r['datum'],
-                r['geschlecht'],
-                number
+                race["datum"],
+                race["geschlecht"],
+                number,
             ))
 
-            if (
-                not value
-                or any(
-                    x[3] == number
-                    for x in r['sendungen']
-                )
+            if not value:
+                continue
+
+            if any(
+                s[3] == number
+                for s in race["tv"]
             ):
                 continue
 
             begin = clock(
-                value,
-                r['datum']
+                value, race["datum"]
             )
 
-            r['sendungen'].append((
+            # Bestätigter Sendebeginn,
+            # aber keine erfundene Endzeit.
+            race["tv"].append((
                 begin,
-                begin + timedelta(
-                    minutes=90
-                ),
-                'ORF 1',
-                number
+                None,
+                "ORF 1",
+                number,
+                "Sölden bestätigt",
             ))
 
             count += 1
 
     print(
-        'Sölden-Sendezeiten zusätzlich abgesichert:',
+        "Sölden-Countdown-Zeiten ergänzt:",
         count
     )
 
 
-def ics(s):
+def ics(value):
     return (
-        str(s)
-        .replace('\\', '\\\\')
-        .replace('\n', '\\n')
-        .replace(',', '\\,')
-        .replace(';', '\\;')
+        str(value)
+        .replace("\\", "\\\\")
+        .replace("\n", "\\n")
+        .replace(",", "\\,")
+        .replace(";", "\\;")
     )
 
 
-def stamp(t):
-    return t.astimezone(
+def stamp(dt):
+    return dt.astimezone(
         timezone.utc
-    ).strftime(
-        '%Y%m%dT%H%M%SZ'
-    )
+    ).strftime("%Y%m%dT%H%M%SZ")
 
 
 def fold(lines):
-    output = []
+    result = []
 
     for line in lines:
-        segment = ''
+        segment = ""
 
         for char in line:
             if len(
                 (segment + char).encode(
-                    'utf-8'
+                    "utf-8"
                 )
             ) > 70:
-                output.append(segment)
-                segment = ' '
+                result.append(segment)
+                segment = " "
 
             segment += char
 
-        output.append(segment)
+        result.append(segment)
 
-    return output
+    return result
 
 
-def legs(r):
+def legs(race):
     starts = sorted(set(
-        x for x in r['starts'] if x
+        x for x in race["starts"]
+        if x
     ))
 
-    if r['disziplin'] in (
-        'Slalom',
-        'Riesentorlauf',
-        'Team-Kombination'
+    if race["disziplin"] in (
+        "Slalom",
+        "Riesentorlauf",
+        "Team-Kombination",
     ):
-        result = [(
-            1,
-            starts[0] if starts else None
-        )]
+        count = (
+            2 if (
+                len(starts) > 1
+                or any(
+                    s[3] == 2
+                    for s in race["tv"]
+                )
+            )
+            else 1
+        )
 
-        if len(starts) >= 2:
-            result.append((
-                2,
-                starts[1]
-            ))
-
-        return result
+        return [
+            (
+                i,
+                starts[i - 1]
+                if len(starts) >= i
+                else None,
+            )
+            for i in range(
+                1, count + 1
+            )
+        ]
 
     return [(
         None,
-        starts[0] if starts else None
+        starts[0] if starts else None,
     )]
 
 
-def broadcasts(r, number, all_legs):
-    chosen = []
+def tv_for_leg(race, number, all_legs):
+    selected = []
 
-    for s in r['sendungen']:
+    for sendung in race["tv"]:
         if (
-            s[3] == number
+            sendung[3] == number
             or (
-                s[3] is None
+                sendung[3] is None
                 and len(all_legs) == 1
             )
         ):
-            chosen.append(s)
+            selected.append(sendung)
+            continue
 
-    return chosen
+        if (
+            sendung[3] is None
+            and len(all_legs) == 2
+        ):
+            distances = []
+
+            for n, start in all_legs:
+                if not start:
+                    continue
+
+                diff = (
+                    start - sendung[0]
+                ).total_seconds() / 60
+
+                if -30 <= diff <= 90:
+                    distances.append((
+                        abs(diff), n
+                    ))
+
+            distances.sort()
+
+            if distances and (
+                len(distances) == 1
+                or distances[0][0]
+                < distances[1][0]
+            ):
+                if distances[0][1] == number:
+                    selected.append(sendung)
+
+    return selected
 
 
 def write_calendar(races):
     lines = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'PRODID:-//ORF Ski Kalender//DE',
-        'CALSCALE:GREGORIAN',
-        'METHOD:PUBLISH',
-        'X-WR-CALNAME:ORF Ski-Weltcup LIVE'
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//ORF Ski Kalender//DE",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "X-WR-CALNAME:ORF Ski-Weltcup LIVE",
     ]
 
     stats = {
-        'ORF': 0,
-        'Rennstart': 0,
-        'Ganztag': 0,
-        'WM': 0
+        "ORF": 0,
+        "Rennstart": 0,
+        "Ganztag": 0,
+        "WM": 0,
+        "Endzeiten bestätigt": 0,
     }
 
-    for r in races:
-        key = race_id(r)
+    for race in races:
+        key = race_key(race)
 
-        fresh_uid = (
-            hashlib.sha256(
-                key.encode('utf-8')
+        base = (
+            race["uids"].get(1)
+            or hashlib.sha256(
+                key.encode("utf-8")
             ).hexdigest()[:24]
-            + '@orf-ski-kalender'
+            + "@orf-ski-kalender"
         )
 
-        base_uid = (
-            r.get('uid1')
-            or fresh_uid
-        )
-
-        all_legs = legs(r)
-
-        if (
-            len(all_legs) == 1
-            and all_legs[0][0] == 1
-            and any(
-                s[3] == 2
-                for s in r['sendungen']
-            )
-        ):
-            all_legs.append(
-                (2, None)
-            )
+        all_legs = legs(race)
 
         for number, start in all_legs:
             if number == 2:
                 uid = (
-                    r.get('uid2')
-                    or base_uid.replace(
-                        '@orf-ski-kalender',
-                        '-lauf2@orf-ski-kalender'
+                    race["uids"].get(2)
+                    or base.replace(
+                        "@orf-ski-kalender",
+                        "-lauf2@orf-ski-kalender",
                     )
                 )
             else:
-                uid = base_uid
+                uid = base
 
             title = (
-                '🏆 Ski-WM 2027 – '
-                if r['wm']
-                else '🎿 ' + r['ort'] + ' – '
+                "🏆 Ski-WM 2027 – "
+                if race["wm"]
+                else (
+                    "🎿 "
+                    + race["ort"]
+                    + " – "
+                )
             )
 
             title += (
-                r['disziplin']
-                + ' '
-                + r['geschlecht']
+                race["disziplin"]
+                + " "
+                + race["geschlecht"]
             )
 
             if number is not None:
                 if (
-                    r['disziplin']
-                    == 'Team-Kombination'
+                    race["disziplin"]
+                    == "Team-Kombination"
                 ):
                     title += (
-                        ' | Abfahrt'
+                        " | Abfahrt"
                         if number == 1
-                        else ' | Slalom'
+                        else " | Slalom"
                     )
                 else:
                     title += (
-                        ' | '
+                        " | "
                         + str(number)
-                        + '. Durchgang'
+                        + ". Durchgang"
                     )
 
             desc = (
-                'Alpine Ski-WM '
-                'Crans-Montana 2027.'
-                if r['wm']
-                else 'FIS Ski-Weltcup 2026/27.'
+                "Alpine Ski-WM "
+                "Crans-Montana 2027."
+                if race["wm"]
+                else "FIS Ski-Weltcup 2026/27."
             )
 
             if start:
                 desc += (
-                    '\nRennstart: '
+                    "\nRennstart: "
                     + start.astimezone(TZ)
-                    .strftime('%H:%M')
-                    + ' Uhr'
+                    .strftime("%H:%M")
+                    + " Uhr"
                 )
 
-            tv = broadcasts(
-                r, number, all_legs
+            broadcasts = tv_for_leg(
+                race,
+                number,
+                all_legs,
             )
 
-            if tv:
+            if broadcasts:
                 begin = min(
-                    x[0] for x in tv
+                    s[0] for s in broadcasts
                 )
 
-                end = max(
-                    x[1] for x in tv
-                )
-
-                title += ' | ORF LIVE'
-
-                desc += (
-                    '\nORF-Sendebeginn: '
-                    + begin.astimezone(TZ)
-                    .strftime('%H:%M')
-                    + ' Uhr'
-                )
-
-                desc += (
-                    '\nSender: '
-                    + ', '.join(
-                        sorted(set(
-                            x[2] for x in tv
-                        ))
+                known_ends = [
+                    s[1]
+                    for s in broadcasts
+                    if (
+                        s[1]
+                        and s[1] > begin
                     )
-                )
-
-                times = [
-                    'DTSTART:' + stamp(begin),
-                    'DTEND:' + stamp(end)
                 ]
 
-                stats['ORF'] += 1
+                if known_ends:
+                    end = max(known_ends)
+
+                    desc += (
+                        "\nORF-Sendeende: "
+                        + end.astimezone(TZ)
+                        .strftime("%H:%M")
+                        + " Uhr"
+                    )
+
+                    stats[
+                        "Endzeiten bestätigt"
+                    ] += 1
+
+                else:
+                    # Vorläufige Dauer.
+                    # Nicht als tatsächliches
+                    # ORF-Sendeende ausgeben.
+                    end = max(
+                        begin + timedelta(
+                            minutes=90
+                        ),
+                        (
+                            start + timedelta(
+                                minutes=60
+                            )
+                            if start
+                            else begin
+                        ),
+                    )
+
+                    desc += (
+                        "\nORF-Sendeende noch "
+                        "nicht bekannt. "
+                        "Dauer vorläufig."
+                    )
+
+                title += " | ORF LIVE"
+
+                desc += (
+                    "\nORF-Sendebeginn: "
+                    + begin.astimezone(TZ)
+                    .strftime("%H:%M")
+                    + " Uhr"
+                )
+
+                desc += (
+                    "\nSender: "
+                    + ", ".join(sorted({
+                        s[2]
+                        for s in broadcasts
+                    }))
+                )
+
+                fields = [
+                    "DTSTART:" + stamp(begin),
+                    "DTEND:" + stamp(end),
+                ]
+
+                stats["ORF"] += 1
 
             elif start:
                 title += (
-                    ' | Start '
+                    " | Start "
                     + start.astimezone(TZ)
-                    .strftime('%H:%M')
-                    + ' Uhr'
+                    .strftime("%H:%M")
+                    + " Uhr"
                 )
 
                 desc += (
-                    '\nORF-Sendezeit noch '
-                    'nicht erkannt; '
-                    'Dauer vorläufig.'
+                    "\nORF-Sendezeit noch "
+                    "nicht erkannt. "
+                    "Dauer vorläufig."
                 )
 
-                times = [
-                    'DTSTART:' + stamp(start),
-                    'DTEND:' + stamp(
+                fields = [
+                    "DTSTART:" + stamp(start),
+                    "DTEND:" + stamp(
                         start + timedelta(
                             minutes=90
                         )
-                    )
+                    ),
                 ]
 
-                stats['Rennstart'] += 1
+                stats["Rennstart"] += 1
 
             else:
-                title += ' | vorläufig'
+                title += " | vorläufig"
 
                 desc += (
-                    '\nNoch keine '
-                    'bestätigte Startzeit.'
+                    "\nNoch keine "
+                    "bestätigte Startzeit."
                 )
 
-                d = date.fromisoformat(
-                    r['datum']
+                day = date.fromisoformat(
+                    race["datum"]
                 )
 
-                times = [
-                    'DTSTART;VALUE=DATE:'
-                    + d.strftime('%Y%m%d'),
-                    'DTEND;VALUE=DATE:'
+                fields = [
+                    "DTSTART;VALUE=DATE:"
+                    + day.strftime("%Y%m%d"),
+                    "DTEND;VALUE=DATE:"
                     + (
-                        d + timedelta(days=1)
-                    ).strftime('%Y%m%d')
+                        day + timedelta(days=1)
+                    ).strftime("%Y%m%d"),
                 ]
 
-                stats['Ganztag'] += 1
+                stats["Ganztag"] += 1
 
-            if r['wm']:
-                stats['WM'] += 1
+            if race["wm"]:
+                stats["WM"] += 1
 
             lines.extend([
-                'BEGIN:VEVENT',
-                'UID:' + uid,
-                'DTSTAMP:' + stamp(NOW),
-                'X-ORF-RACE-ID:' + ics(key),
-                *times,
-                'SUMMARY:' + ics(title),
-                'DESCRIPTION:' + ics(desc),
-                'END:VEVENT'
+                "BEGIN:VEVENT",
+                "UID:" + uid,
+                "DTSTAMP:" + stamp(NOW),
+                "X-ORF-RACE-ID:"
+                + ics(key),
+                *fields,
+                "SUMMARY:"
+                + ics(title),
+                "DESCRIPTION:"
+                + ics(desc),
+                "END:VEVENT",
             ])
 
-    lines.append('END:VCALENDAR')
+    lines.append("END:VCALENDAR")
 
     OUTPUT.write_bytes((
-        '\r\n'.join(fold(lines))
-        + '\r\n'
-    ).encode('utf-8'))
+        "\r\n".join(fold(lines))
+        + "\r\n"
+    ).encode("utf-8"))
 
-    print(
-        'Kalendereinträge:',
-        sum(stats[x] for x in (
-            'ORF',
-            'Rennstart',
-            'Ganztag'
-        ))
+    total = (
+        stats["ORF"]
+        + stats["Rennstart"]
+        + stats["Ganztag"]
     )
 
-    for name, value in stats.items():
-        print(name + ':', value)
+    print(
+        "Kalendereinträge:",
+        total
+    )
 
-    print('FERTIG')
+    for key, value in stats.items():
+        print(key + ":", value)
+
+    print("FERTIG")
 
 
 def main():
-    old = old_calendar()
-    races = fis_races()
+    old = old_races()
+    fis = fis_races()
 
     print(
-        'FIS-Weltcuprennen:',
-        len(races)
+        "FIS-Weltcuprennen:",
+        len(fis)
     )
 
-    known = {
-        race_id(r): r
-        for r in races
-    }
+    races = []
+    seen = set()
 
-    for key, r in known.items():
+    # FIS-Rennen ohne Doppelungen.
+    for race in fis:
+        key = race_key(race)
+
+        if key in seen:
+            continue
+
+        seen.add(key)
+
         if key in old:
-            r['uid1'] = old[key]['uid1']
-            r['uid2'] = old[key]['uid2']
+            race["uids"] = old[
+                key
+            ]["uids"].copy()
 
-    # Ski-WM bleibt separat enthalten.
-    for day, event, gender, starts in WM:
-        r = new_race(
+        races.append(race)
+
+    # WM exakt einmal je Bewerb.
+    # Alte WM-Dubletten werden
+    # nicht erneut übernommen.
+    for day, kind, gender, times in WM:
+        race = new_race(
             day,
-            'Crans-Montana',
-            event,
+            "Crans-Montana",
+            kind,
             gender,
-            wm=True
+            True,
         )
 
-        r['starts'] = [
-            clock(s, day)
-            for s in starts
+        race["starts"] = [
+            clock(t, day)
+            for t in times
         ]
 
-        if race_id(r) in old:
-            previous = old[
-                race_id(r)
-            ]
-            r['uid1'] = previous['uid1']
-            r['uid2'] = previous['uid2']
+        key = race_key(race)
 
-        races.append(r)
+        if key in old:
+            race["uids"] = old[
+                key
+            ]["uids"].copy()
 
-    # ORF laden, bevor Rennen entfernt werden.
-    program_ok = True
+        if key not in seen:
+            races.append(race)
+            seen.add(key)
+
+    program = []
+    covered = set()
 
     try:
-        program, covered = orf_program()
+        items, days = orf_official()
+        program.extend(items)
+        covered.update(days)
 
         print(
-            'ORF-Ski-Liveübertragungen '
-            'im aktuellen Sendeplan:',
-            len(program)
+            "Offizieller ORF-Sendeplan:",
+            len(items)
         )
 
     except Exception as exc:
-        program_ok = False
-        program = []
-        covered = set()
-
         print(
-            'ORF vorübergehend '
-            'nicht lesbar:',
+            "Offizieller ORF-Sendeplan "
+            "nicht lesbar:",
             exc
         )
 
+    items, days = epg_program()
+    program.extend(items)
+    covered.update(days)
+
+    # Fehlende FIS-Rennen behalten,
+    # wenn ORF noch keine Daten für
+    # den Tag hat oder das Rennen
+    # dort weiterhin geführt wird.
     held = 0
     removed = 0
 
-    for key, r in old.items():
-        if (
-            key in known
-            or r['datum'] < TODAY.isoformat()
-        ):
+    for key, race in old.items():
+        if key in seen or race["wm"]:
             continue
 
-        if (
-            not program_ok
-            or r['datum'] not in covered
-        ):
-            # ORF-Programm für den Tag
-            # noch nicht verfügbar:
-            # Rennen behalten.
-            races.append(r)
-            held += 1
+        # Vergangene Termine nicht
+        # künstlich wieder hinzufügen.
+        if race["datum"] < TODAY.isoformat():
             continue
 
-        if any(
-            same_race(r, p)
+        has_orf = any(
+            p["datum"] == race["datum"]
+            and p["geschlecht"]
+            == race["geschlecht"]
+            and p["disziplin"]
+            == race["disziplin"]
             for p in program
-        ):
-            races.append(r)
-            held += 1
+        )
 
+        if (
+            race["datum"] not in covered
+            or has_orf
+        ):
+            races.append(race)
+            seen.add(key)
+            held += 1
         else:
             removed += 1
 
-    # Rennen ergänzen, die nur der ORF listet.
-    only_orf = 0
+    add_starts(races)
 
-    for p in program:
-        if any(
-            same_race(r, p)
-            for r in races
-        ):
-            continue
+    matched = 0
 
-        if re.search(
-            r'\b(?:ski[- ]?wm|'
-            r'weltmeisterschaft)\b',
-            p['text'],
-            re.I
-        ):
-            continue
-
-        venue_match = re.search(
-            r',\s*([^,]+)\s*$',
-            p['text']
+    for item in program:
+        race = match_race(
+            item, races
         )
 
-        if not venue_match:
-            continue
+        if race:
+            add_broadcast(
+                race, item
+            )
+            matched += 1
 
-        venue = (
-            venue_match.group(1).strip()
-        )
+    add_soelden(races)
 
-        if not venue or len(venue) > 60:
-            continue
-
-        r = new_race(
-            p['datum'],
-            venue,
-            p['disziplin'],
-            p['geschlecht']
-        )
-
-        k = race_id(r)
-
-        if k in old:
-            r['uid1'] = old[k]['uid1']
-            r['uid2'] = old[k]['uid2']
-
-        races.append(r)
-        only_orf += 1
-
-    apply_start_file(races)
-
-    hits = attach_orf(
-        races, program
+    print(
+        "ORF-Sendungen zugeordnet:",
+        matched
     )
 
     print(
-        'Nur im ORF gelistete '
-        'Rennen ergänzt:',
-        only_orf
-    )
-
-    add_fallback_soelden(races)
-
-    print(
-        'ORF-Sendungen zugeordnet:',
-        hits
-    )
-
-    print(
-        'Fehlende FIS-Rennen '
-        'vorsorglich behalten:',
+        "Fehlende FIS-Rennen behalten:",
         held
     )
 
     print(
-        'Weder bei FIS noch '
-        'im ORF-Programm:',
+        "Fehlende FIS-/ORF-Rennen entfernt:",
         removed
     )
 
     write_calendar(races)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
