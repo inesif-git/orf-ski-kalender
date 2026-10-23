@@ -6,52 +6,56 @@ METHOD:PUBLISH
 X-WR-CALNAME:ORF Ski-Weltcup LIVE
 BEGIN:VEVENT
 UID:3427e6e41bd238e3f8708345@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-10-25|Herren|Riesentorlauf|solden aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-10-25|Herren|Riesentorlauf
 DTSTART:20261025T082500Z
-DTEND:20261025T095500Z
+DTEND:20261025T100000Z
 SUMMARY:🎿 Soelden (AUT) – Riesentorlauf Herren | 1. Durchgang | O
  RF LIVE
-DESCRIPTION:FIS Ski-Weltcup 2026/27.\nRennstart: 10:00 Uhr\nORF-Sendeb
- eginn: 09:25 Uhr\nSender: ORF 1
+DESCRIPTION:FIS Ski-Weltcup 2026/27.\nRennstart: 10:00 Uhr\nORF-Sendee
+ nde noch nicht bekannt. Dauer vorläufig.\nORF-Sendebeginn: 09:25 Uhr
+ \nSender: ORF 1
 END:VEVENT
 BEGIN:VEVENT
 UID:3427e6e41bd238e3f8708345-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-10-25|Herren|Riesentorlauf|solden aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-10-25|Herren|Riesentorlauf
 DTSTART:20261025T113500Z
 DTEND:20261025T130500Z
 SUMMARY:🎿 Soelden (AUT) – Riesentorlauf Herren | 2. Durchgang | O
  RF LIVE
-DESCRIPTION:FIS Ski-Weltcup 2026/27.\nRennstart: 13:00 Uhr\nORF-Sendeb
- eginn: 12:35 Uhr\nSender: ORF 1
+DESCRIPTION:FIS Ski-Weltcup 2026/27.\nRennstart: 13:00 Uhr\nORF-Sendee
+ nde noch nicht bekannt. Dauer vorläufig.\nORF-Sendebeginn: 12:35 Uhr
+ \nSender: ORF 1
 END:VEVENT
 BEGIN:VEVENT
 UID:e127051e1556e5f4340b59e5@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-10-24|Damen|Riesentorlauf|solden aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-10-24|Damen|Riesentorlauf
 DTSTART:20261024T073000Z
 DTEND:20261024T090000Z
 SUMMARY:🎿 Soelden (AUT) – Riesentorlauf Damen | 1. Durchgang | OR
  F LIVE
-DESCRIPTION:FIS Ski-Weltcup 2026/27.\nRennstart: 10:00 Uhr\nORF-Sendeb
- eginn: 09:30 Uhr\nSender: ORF 1
+DESCRIPTION:FIS Ski-Weltcup 2026/27.\nRennstart: 10:00 Uhr\nORF-Sendee
+ nde noch nicht bekannt. Dauer vorläufig.\nORF-Sendebeginn: 09:30 Uhr
+ \nSender: ORF 1
 END:VEVENT
 BEGIN:VEVENT
 UID:e127051e1556e5f4340b59e5-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-10-24|Damen|Riesentorlauf|solden aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-10-24|Damen|Riesentorlauf
 DTSTART:20261024T104500Z
 DTEND:20261024T121500Z
 SUMMARY:🎿 Soelden (AUT) – Riesentorlauf Damen | 2. Durchgang | OR
  F LIVE
-DESCRIPTION:FIS Ski-Weltcup 2026/27.\nRennstart: 13:00 Uhr\nORF-Sendeb
- eginn: 12:45 Uhr\nSender: ORF 1
+DESCRIPTION:FIS Ski-Weltcup 2026/27.\nRennstart: 13:00 Uhr\nORF-Sendee
+ nde noch nicht bekannt. Dauer vorläufig.\nORF-Sendebeginn: 12:45 Uhr
+ \nSender: ORF 1
 END:VEVENT
 BEGIN:VEVENT
 UID:d25d5e340abc8ef28e4b207e@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-11-15|Herren|Slalom|levi fin
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-11-15|Herren|Slalom
 DTSTART;VALUE=DATE:20261115
 DTEND;VALUE=DATE:20261116
 SUMMARY:🎿 Levi (FIN) – Slalom Herren | 1. Durchgang | vorläufig
@@ -60,8 +64,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:c4c4326a0c375e35f736acd1@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-11-14|Damen|Slalom|levi fin
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-11-14|Damen|Slalom
 DTSTART;VALUE=DATE:20261114
 DTEND;VALUE=DATE:20261115
 SUMMARY:🎿 Levi (FIN) – Slalom Damen | 1. Durchgang | vorläufig
@@ -70,8 +74,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:bc34f051f317adc676104cc8@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-11-22|Herren|Slalom|gurgl aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-11-22|Herren|Slalom
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
 SUMMARY:🎿 Gurgl (AUT) – Slalom Herren | 1. Durchgang | vorläufig
@@ -80,8 +84,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:348335e718a849fbf1d55ce7@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-11-21|Damen|Slalom|gurgl aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-11-21|Damen|Slalom
 DTSTART;VALUE=DATE:20261121
 DTEND;VALUE=DATE:20261122
 SUMMARY:🎿 Gurgl (AUT) – Slalom Damen | 1. Durchgang | vorläufig
@@ -90,8 +94,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:caf644eca09deed49050c928@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-11-28|Damen|Riesentorlauf|killington usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-11-28|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:🎿 Killington (USA) – Riesentorlauf Damen | 1. Durchgang |
@@ -101,8 +105,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:68e484aa6a836566e2ba811b@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-11-29|Damen|Slalom|killington usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-11-29|Damen|Slalom
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:🎿 Killington (USA) – Slalom Damen | 1. Durchgang | vorlä
@@ -112,8 +116,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:0f96d6c6148071cc36fcb0a7@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-11-28|Herren|Super-G|copper mountain co usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-11-28|Herren|Super-G
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:🎿 Copper Mountain\, CO (USA) – Super-G Herren | vorläufi
@@ -123,9 +127,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:665e9276f54875b5cd2fc49d@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-11-29|Herren|Riesentorlauf|copper mountain co us
- a
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-11-29|Herren|Riesentorlauf
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:🎿 Copper Mountain\, CO (USA) – Riesentorlauf Herren | 1. 
@@ -135,8 +138,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:dbf2e11e0ec1bc1f65ec40cc@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-06|Herren|Riesentorlauf|beaver creek usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-06|Herren|Riesentorlauf
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:🎿 Beaver Creek (USA) – Riesentorlauf Herren | 1. Durchgan
@@ -146,8 +149,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:7e5084283ca60c6cd957b2ad@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-05|Herren|Super-G|beaver creek usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-05|Herren|Super-G
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:🎿 Beaver Creek (USA) – Super-G Herren | vorläufig
@@ -156,8 +159,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:6064495c2546866ed2f12f04@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-04|Herren|Abfahrt|beaver creek usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-04|Herren|Abfahrt
 DTSTART;VALUE=DATE:20261204
 DTEND;VALUE=DATE:20261205
 SUMMARY:🎿 Beaver Creek (USA) – Abfahrt Herren | vorläufig
@@ -166,8 +169,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:3ae591b0af4c7bc620080f9e@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-03|Herren|Abfahrt|beaver creek usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-03|Herren|Abfahrt
 DTSTART;VALUE=DATE:20261203
 DTEND;VALUE=DATE:20261204
 SUMMARY:🎿 Beaver Creek (USA) – Abfahrt Herren | vorläufig
@@ -176,8 +179,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:51d90dbaab8a5e3b3a59cb30@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-05|Damen|Riesentorlauf|tremblant can
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-05|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:🎿 Tremblant (CAN) – Riesentorlauf Damen | 1. Durchgang | 
@@ -187,8 +190,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:8ed6fe01e965319ef535244d@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-06|Damen|Riesentorlauf|tremblant can
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-06|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:🎿 Tremblant (CAN) – Riesentorlauf Damen | 1. Durchgang | 
@@ -198,8 +201,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:36c0e6837b52ef250c221fdd@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-11|Damen|Abfahrt|beaver creek usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-11|Damen|Abfahrt
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:🎿 Beaver Creek (USA) – Abfahrt Damen | vorläufig
@@ -208,8 +211,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:1a1654446aa5972ce75c189d@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-12|Damen|Abfahrt|beaver creek usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-12|Damen|Abfahrt
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:🎿 Beaver Creek (USA) – Abfahrt Damen | vorläufig
@@ -218,8 +221,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:a623b632f80e1cca243b0c2a@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-13|Damen|Super-G|beaver creek usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-13|Damen|Super-G
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:🎿 Beaver Creek (USA) – Super-G Damen | vorläufig
@@ -228,8 +231,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:6f87c6ee9d53d2b55c50f71b@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-12|Herren|Riesentorlauf|val d isere fra
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-12|Herren|Riesentorlauf
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
 SUMMARY:🎿 Val d'Isere (FRA) – Riesentorlauf Herren | 1. Durchgang
@@ -239,8 +242,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:695e608e83c8e8a68ab615f7@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-13|Herren|Slalom|val d isere fra
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-13|Herren|Slalom
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
 SUMMARY:🎿 Val d'Isere (FRA) – Slalom Herren | 1. Durchgang | vorl
@@ -249,10 +252,9 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
  .
 END:VEVENT
 BEGIN:VEVENT
-UID:6e40b167c17261af3a2acd42@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-18|Herren|Super-G|val gardena groden sudtirol
-  ita
+UID:2cf7894931c00e41718f0c9b@orf-ski-kalender
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-18|Herren|Super-G
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261219
 SUMMARY:🎿 Val Gardena-Groeden Südtirol (ITA) – Super-G Herren | 
@@ -261,10 +263,9 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
  .
 END:VEVENT
 BEGIN:VEVENT
-UID:1c62e9b2f9ebf3580ade57f9@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-19|Herren|Abfahrt|val gardena groden sudtirol
-  ita
+UID:ca3e014731e38e5faa406c2f@orf-ski-kalender
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-19|Herren|Abfahrt
 DTSTART;VALUE=DATE:20261219
 DTEND;VALUE=DATE:20261220
 SUMMARY:🎿 Val Gardena-Groeden Südtirol (ITA) – Abfahrt Herren | 
@@ -274,8 +275,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:fd4c424d5f0c8f94e6eb9519@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-18|Damen|Super-G|st moritz sui
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-18|Damen|Super-G
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261219
 SUMMARY:🎿 St. Moritz (SUI) – Super-G Damen | vorläufig
@@ -284,8 +285,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:251e6ec9b2853c03a0bd7b5c@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-19|Damen|Super-G|st moritz sui
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-19|Damen|Super-G
 DTSTART;VALUE=DATE:20261219
 DTEND;VALUE=DATE:20261220
 SUMMARY:🎿 St. Moritz (SUI) – Super-G Damen | vorläufig
@@ -294,8 +295,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:d81c42d59f72766ec96324e2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-20|Damen|Riesentorlauf|st moritz sui
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-20|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:🎿 St. Moritz (SUI) – Riesentorlauf Damen | 1. Durchgang |
@@ -305,8 +306,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:13cbbe3eb55de6281634d884@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-20|Herren|Riesentorlauf|alta badia ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-20|Herren|Riesentorlauf
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
 SUMMARY:🎿 Alta Badia (ITA) – Riesentorlauf Herren | 1. Durchgang 
@@ -316,8 +317,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:632d5f402121ac7b681547b2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-21|Herren|Slalom|alta badia ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-21|Herren|Slalom
 DTSTART;VALUE=DATE:20261221
 DTEND;VALUE=DATE:20261222
 SUMMARY:🎿 Alta Badia (ITA) – Slalom Herren | 1. Durchgang | vorl
@@ -327,8 +328,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:771e4f92af5f2c8b94b67b45@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-22|Damen|Slalom|courchevel fra
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-22|Damen|Slalom
 DTSTART;VALUE=DATE:20261222
 DTEND;VALUE=DATE:20261223
 SUMMARY:🎿 Courchevel (FRA) – Slalom Damen | 1. Durchgang | vorlä
@@ -338,8 +339,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:2233e2f2b2b99dee0158b886@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-23|Herren|Slalom|madonna di campiglio ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-23|Herren|Slalom
 DTSTART;VALUE=DATE:20261223
 DTEND;VALUE=DATE:20261224
 SUMMARY:🎿 Madonna di Campiglio (ITA) – Slalom Herren | 1. Durchga
@@ -349,8 +350,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:5180129c69dc90152c3ddfad@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-29|Herren|Super-G|bormio ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-29|Herren|Super-G
 DTSTART;VALUE=DATE:20261229
 DTEND;VALUE=DATE:20261230
 SUMMARY:🎿 Bormio (ITA) – Super-G Herren | vorläufig
@@ -359,8 +360,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:042b6a954abb0a29c92b2d01@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-28|Herren|Abfahrt|bormio ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-28|Herren|Abfahrt
 DTSTART;VALUE=DATE:20261228
 DTEND;VALUE=DATE:20261229
 SUMMARY:🎿 Bormio (ITA) – Abfahrt Herren | vorläufig
@@ -369,9 +370,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:e65469d3ec32eb1d18300781@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-28|Damen|Riesentorlauf|dachstein west gosau a
- ut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-28|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20261228
 DTEND;VALUE=DATE:20261229
 SUMMARY:🎿 Dachstein West / Gosau (AUT) – Riesentorlauf Damen | 1.
@@ -381,8 +381,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:2df18573d13a40f0ea2992ee@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-29|Damen|Slalom|dachstein west gosau aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2026-12-29|Damen|Slalom
 DTSTART;VALUE=DATE:20261229
 DTEND;VALUE=DATE:20261230
 SUMMARY:🎿 Dachstein West / Gosau (AUT) – Slalom Damen | 1. Durchg
@@ -392,8 +392,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:07203d6615ef720acec124bd@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-02|Herren|Riesentorlauf|kranjska gora slo
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-02|Herren|Riesentorlauf
 DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270103
 SUMMARY:🎿 Kranjska Gora (SLO) – Riesentorlauf Herren | 1. Durchga
@@ -403,8 +403,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:3b544977d2d38ecd8bae63e5@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-03|Herren|Slalom|kranjska gora slo
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-03|Herren|Slalom
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
 SUMMARY:🎿 Kranjska Gora (SLO) – Slalom Herren | 1. Durchgang | vo
@@ -414,8 +414,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:394efe2ddc912700518d9644@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-04|Damen|Riesentorlauf|flachau aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-04|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20270104
 DTEND;VALUE=DATE:20270105
 SUMMARY:🎿 Flachau (AUT) – Riesentorlauf Damen | 1. Durchgang | vo
@@ -425,8 +425,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:9d9b127b63fb293ec2e9c7c8@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-05|Damen|Slalom|flachau aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-05|Damen|Slalom
 DTSTART;VALUE=DATE:20270105
 DTEND;VALUE=DATE:20270106
 SUMMARY:🎿 Flachau (AUT) – Slalom Damen | 1. Durchgang | vorläufi
@@ -436,8 +436,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:b394d45f9bd08417f851d437@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-09|Damen|Abfahrt|val di fassa ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-09|Damen|Abfahrt
 DTSTART;VALUE=DATE:20270109
 DTEND;VALUE=DATE:20270110
 SUMMARY:🎿 Val di Fassa (ITA) – Abfahrt Damen | vorläufig
@@ -446,8 +446,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:7d3f760c633bdc5a34d14d36@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-10|Damen|Super-G|val di fassa ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-10|Damen|Super-G
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:🎿 Val di Fassa (ITA) – Super-G Damen | vorläufig
@@ -456,8 +456,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:16fbeea0afb63df0bd2ff846@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-09|Herren|Riesentorlauf|adelboden sui
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-09|Herren|Riesentorlauf
 DTSTART;VALUE=DATE:20270109
 DTEND;VALUE=DATE:20270110
 SUMMARY:🎿 Adelboden (SUI) – Riesentorlauf Herren | 1. Durchgang |
@@ -467,8 +467,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:dd3da58cf9b7cd1afb3e17df@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-10|Herren|Slalom|adelboden sui
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-10|Herren|Slalom
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
 SUMMARY:🎿 Adelboden (SUI) – Slalom Herren | 1. Durchgang | vorlä
@@ -478,8 +478,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:78476a59c5cd0505b8669fa6@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-15|Herren|Super-G|wengen sui
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-15|Herren|Super-G
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:🎿 Wengen (SUI) – Super-G Herren | vorläufig
@@ -488,8 +488,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:622502912db20c40b6be4a2e@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-17|Herren|Slalom|wengen sui
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-17|Herren|Slalom
 DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
 SUMMARY:🎿 Wengen (SUI) – Slalom Herren | 1. Durchgang | vorläufi
@@ -499,8 +499,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:d3618262044411d386c7d666@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-16|Herren|Abfahrt|wengen sui
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-16|Herren|Abfahrt
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
 SUMMARY:🎿 Wengen (SUI) – Abfahrt Herren | vorläufig
@@ -509,8 +509,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:3ae8a41da7da47192cf71dd0@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-15|Damen|Abfahrt|cortina d ampezzo ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-15|Damen|Abfahrt
 DTSTART;VALUE=DATE:20270115
 DTEND;VALUE=DATE:20270116
 SUMMARY:🎿 Cortina d'Ampezzo (ITA) – Abfahrt Damen | vorläufig
@@ -519,8 +519,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:88d3ec041fd93b0c2f8c47e5@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-16|Damen|Abfahrt|cortina d ampezzo ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-16|Damen|Abfahrt
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
 SUMMARY:🎿 Cortina d'Ampezzo (ITA) – Abfahrt Damen | vorläufig
@@ -529,8 +529,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:e38dc8383f95e38cefd9a1d8@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-17|Damen|Super-G|cortina d ampezzo ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-17|Damen|Super-G
 DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
 SUMMARY:🎿 Cortina d'Ampezzo (ITA) – Super-G Damen | vorläufig
@@ -539,8 +539,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:bd001fba0b87ae7680116d2e@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-19|Damen|Riesentorlauf|kronplatz ita
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-19|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20270119
 DTEND;VALUE=DATE:20270120
 SUMMARY:🎿 Kronplatz (ITA) – Riesentorlauf Damen | 1. Durchgang | 
@@ -550,8 +550,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:6f0356392188c67801365d65@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-22|Herren|Super-G|kitzbuhel aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-22|Herren|Super-G
 DTSTART;VALUE=DATE:20270122
 DTEND;VALUE=DATE:20270123
 SUMMARY:🎿 Kitzbuehel (AUT) – Super-G Herren | vorläufig
@@ -560,8 +560,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:e9a7e88910fa41fb8e4f692c@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-23|Herren|Abfahrt|kitzbuhel aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-23|Herren|Abfahrt
 DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270124
 SUMMARY:🎿 Kitzbuehel (AUT) – Abfahrt Herren | vorläufig
@@ -570,8 +570,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:d76df1446299b4a13ca6869f@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-24|Herren|Slalom|kitzbuhel aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-24|Herren|Slalom
 DTSTART;VALUE=DATE:20270124
 DTEND;VALUE=DATE:20270125
 SUMMARY:🎿 Kitzbuehel (AUT) – Slalom Herren | 1. Durchgang | vorl
@@ -581,8 +581,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:c075047e07422404e2aedd85@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-24|Damen|Slalom|jasna svk
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-24|Damen|Slalom
 DTSTART;VALUE=DATE:20270124
 DTEND;VALUE=DATE:20270125
 SUMMARY:🎿 Jasna (SVK) – Slalom Damen | 1. Durchgang | vorläufig
@@ -591,8 +591,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:4b7086d25abd36f777a6de19@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-23|Damen|Riesentorlauf|jasna svk
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-23|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270124
 SUMMARY:🎿 Jasna (SVK) – Riesentorlauf Damen | 1. Durchgang | vorl
@@ -602,8 +602,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:f4e1c0f0a0a5dee20d71f4b1@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-26|Herren|Riesentorlauf|schladming aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-26|Herren|Riesentorlauf
 DTSTART;VALUE=DATE:20270126
 DTEND;VALUE=DATE:20270127
 SUMMARY:🎿 Schladming (AUT) – Riesentorlauf Herren | 1. Durchgang 
@@ -613,8 +613,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:2057eb893241686d52a14040@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-27|Herren|Slalom|schladming aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-27|Herren|Slalom
 DTSTART;VALUE=DATE:20270127
 DTEND;VALUE=DATE:20270128
 SUMMARY:🎿 Schladming (AUT) – Slalom Herren | 1. Durchgang | vorl
@@ -624,8 +624,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:477df5e00b07c8ef9625f65b@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-29|Damen|Riesentorlauf|kranjska gora slo
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-29|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20270129
 DTEND;VALUE=DATE:20270130
 SUMMARY:🎿 Kranjska Gora (SLO) – Riesentorlauf Damen | 1. Durchgan
@@ -635,8 +635,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:d5ddbef530af357f68f7c82d@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-30|Damen|Slalom|kranjska gora slo
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-30|Damen|Slalom
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
 SUMMARY:🎿 Kranjska Gora (SLO) – Slalom Damen | 1. Durchgang | vor
@@ -646,8 +646,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:869894e69706aef2350bdcad@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-01-30|Herren|Slalom|chamonix fra
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-01-30|Herren|Slalom
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
 SUMMARY:🎿 Chamonix (FRA) – Slalom Herren | 1. Durchgang | vorläu
@@ -656,9 +656,9 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
  .
 END:VEVENT
 BEGIN:VEVENT
-UID:2cdd55ab44a1b1e505423cf3@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-20|Herren|Abfahrt|garmisch partenkirchen ger
+UID:1b9d528c7a798cc46f24f786@orf-ski-kalender
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-02-20|Herren|Abfahrt
 DTSTART;VALUE=DATE:20270220
 DTEND;VALUE=DATE:20270221
 SUMMARY:🎿 Garmisch-Partenkirchen (GER) – Abfahrt Herren | vorläu
@@ -667,9 +667,9 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
  .
 END:VEVENT
 BEGIN:VEVENT
-UID:fcd295716660f78055b6627f@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-21|Herren|Super-G|garmisch partenkirchen ger
+UID:759d797961cfbe7a69482ebd@orf-ski-kalender
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-02-21|Herren|Super-G
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
 SUMMARY:🎿 Garmisch-Partenkirchen (GER) – Super-G Herren | vorläu
@@ -679,8 +679,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:580de6a75a9e464b152e6da6@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-20|Damen|Super-G|lenzerheide sui
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-02-20|Damen|Super-G
 DTSTART;VALUE=DATE:20270220
 DTEND;VALUE=DATE:20270221
 SUMMARY:🎿 Lenzerheide (SUI) – Super-G Damen | vorläufig
@@ -689,8 +689,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:815b82f1ec6cab2152bdb57f@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-21|Damen|Super-G|lenzerheide sui
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-02-21|Damen|Super-G
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
 SUMMARY:🎿 Lenzerheide (SUI) – Super-G Damen | vorläufig
@@ -698,9 +698,9 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
  .
 END:VEVENT
 BEGIN:VEVENT
-UID:6d48665901fb89c03154509a@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-27|Damen|Abfahrt|garmisch partenkirchen ger
+UID:e9d9093bcabe7a7e38202048@orf-ski-kalender
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-02-27|Damen|Abfahrt
 DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
 SUMMARY:🎿 Garmisch-Partenkirchen (GER) – Abfahrt Damen | vorläuf
@@ -709,9 +709,9 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
  .
 END:VEVENT
 BEGIN:VEVENT
-UID:a06b56f38c8c9658fbeba992@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-28|Damen|Abfahrt|garmisch partenkirchen ger
+UID:2ccf1e3fe56b56c78d677f54@orf-ski-kalender
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-02-28|Damen|Abfahrt
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:🎿 Garmisch-Partenkirchen (GER) – Abfahrt Damen | vorläuf
@@ -721,8 +721,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:cbde47da03dc86e8c9e6a695@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-27|Herren|Abfahrt|saalbach aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-02-27|Herren|Abfahrt
 DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
 SUMMARY:🎿 Saalbach (AUT) – Abfahrt Herren | vorläufig
@@ -731,8 +731,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:5966d2789ddc20e838df0b47@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-28|Herren|Super-G|saalbach aut
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-02-28|Herren|Super-G
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:🎿 Saalbach (AUT) – Super-G Herren | vorläufig
@@ -741,8 +741,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:582f2b6b4e0b78e874038334@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-06|Herren|Abfahrt|kvitfjell nor
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-06|Herren|Abfahrt
 DTSTART;VALUE=DATE:20270306
 DTEND;VALUE=DATE:20270307
 SUMMARY:🎿 Kvitfjell (NOR) – Abfahrt Herren | vorläufig
@@ -751,8 +751,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:3dd4fb0ddfdc93800c8f292f@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-07|Herren|Super-G|kvitfjell nor
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-07|Herren|Super-G
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:🎿 Kvitfjell (NOR) – Super-G Herren | vorläufig
@@ -761,8 +761,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:105da9d1d2d02dd2c52e1879@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-06|Damen|Riesentorlauf|soldeu and
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-06|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20270306
 DTEND;VALUE=DATE:20270307
 SUMMARY:🎿 Soldeu (AND) – Riesentorlauf Damen | 1. Durchgang | vor
@@ -772,8 +772,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:aefa3b63d484d322101d945e@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-07|Damen|Slalom|soldeu and
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-07|Damen|Slalom
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:🎿 Soldeu (AND) – Slalom Damen | 1. Durchgang | vorläufig
@@ -782,8 +782,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:e050b095830b91980dfb735e@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-13|Herren|Riesentorlauf|are swe
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-13|Herren|Riesentorlauf
 DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270314
 SUMMARY:🎿 Are (SWE) – Riesentorlauf Herren | 1. Durchgang | vorl
@@ -793,8 +793,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:7c9682105abb885d636b61f2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-14|Herren|Slalom|are swe
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-14|Herren|Slalom
 DTSTART;VALUE=DATE:20270314
 DTEND;VALUE=DATE:20270315
 SUMMARY:🎿 Are (SWE) – Slalom Herren | 1. Durchgang | vorläufig
@@ -803,8 +803,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:185f2939aa4ae6e7b5a06ebd@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-20|Damen|Abfahrt|sun valley usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-20|Damen|Abfahrt
 DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:🎿 Sun Valley (USA) – Abfahrt Damen | vorläufig
@@ -813,8 +813,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:c96c2493cc2d0fe0a2fb5e98@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-20|Herren|Abfahrt|sun valley usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-20|Herren|Abfahrt
 DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
 SUMMARY:🎿 Sun Valley (USA) – Abfahrt Herren | vorläufig
@@ -823,8 +823,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:1ba89612d57bb1d98e9c9df9@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-21|Damen|Super-G|sun valley usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-21|Damen|Super-G
 DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:🎿 Sun Valley (USA) – Super-G Damen | vorläufig
@@ -833,8 +833,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:63b9f728cdccc16b8683473c@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-21|Herren|Super-G|sun valley usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-21|Herren|Super-G
 DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
 SUMMARY:🎿 Sun Valley (USA) – Super-G Herren | vorläufig
@@ -843,8 +843,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:1ea90108a6e4ad53cdee8eaf@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-23|Damen|Riesentorlauf|sun valley usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-23|Damen|Riesentorlauf
 DTSTART;VALUE=DATE:20270323
 DTEND;VALUE=DATE:20270324
 SUMMARY:🎿 Sun Valley (USA) – Riesentorlauf Damen | 1. Durchgang |
@@ -854,8 +854,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:f49197b53355e2b5819f1578@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-24|Herren|Riesentorlauf|sun valley usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-24|Herren|Riesentorlauf
 DTSTART;VALUE=DATE:20270324
 DTEND;VALUE=DATE:20270325
 SUMMARY:🎿 Sun Valley (USA) – Riesentorlauf Herren | 1. Durchgang 
@@ -865,8 +865,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:15d48b67bd9fb8e09aabe291@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-25|Damen|Slalom|sun valley usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-25|Damen|Slalom
 DTSTART;VALUE=DATE:20270325
 DTEND;VALUE=DATE:20270326
 SUMMARY:🎿 Sun Valley (USA) – Slalom Damen | 1. Durchgang | vorlä
@@ -876,8 +876,8 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:5199cef20dc9f781f82e8835@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-03-25|Herren|Slalom|sun valley usa
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WC|2027-03-25|Herren|Slalom
 DTSTART;VALUE=DATE:20270325
 DTEND;VALUE=DATE:20270326
 SUMMARY:🎿 Sun Valley (USA) – Slalom Herren | 1. Durchgang | vorl
@@ -887,349 +887,185 @@ DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
 END:VEVENT
 BEGIN:VEVENT
 UID:3a679ad34ac920065e2af890@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-01|Mixed|Team-Parallel Mixed|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-01|Mixed|Team-Parallel Mixed
 DTSTART:20270201T101500Z
 DTEND:20270201T114500Z
 SUMMARY:🏆 Ski-WM 2027 – Team-Parallel Mixed Mixed | Start 11:15 U
  hr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 11:15 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:42a52031b1625b6d998eccba@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-04|Damen|Super-G|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-04|Damen|Super-G
 DTSTART:20270204T101500Z
 DTEND:20270204T114500Z
 SUMMARY:🏆 Ski-WM 2027 – Super-G Damen | Start 11:15 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 11:15 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:9026bc3d6c173ad4d2f0c9e0@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-05|Herren|Super-G|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-05|Herren|Super-G
 DTSTART:20270205T101500Z
 DTEND:20270205T114500Z
 SUMMARY:🏆 Ski-WM 2027 – Super-G Herren | Start 11:15 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 11:15 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:10b97e1efe665a4608a9e367@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-06|Damen|Abfahrt|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-06|Damen|Abfahrt
 DTSTART:20270206T101500Z
 DTEND:20270206T114500Z
 SUMMARY:🏆 Ski-WM 2027 – Abfahrt Damen | Start 11:15 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 11:15 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:8d5ca5740fe94941cc732f37@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-07|Herren|Abfahrt|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-07|Herren|Abfahrt
 DTSTART:20270207T101500Z
 DTEND:20270207T114500Z
 SUMMARY:🏆 Ski-WM 2027 – Abfahrt Herren | Start 11:15 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 11:15 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:ecd3a3034577facfdbf252f0-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-09|Damen|Team-Kombination|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-09|Damen|Team-Kombination
 DTSTART:20270209T090000Z
 DTEND:20270209T103000Z
 SUMMARY:🏆 Ski-WM 2027 – Team-Kombination Damen | Abfahrt | Start 
  10:00 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 10:00 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:ecd3a3034577facfdbf252f0-lauf2-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-09|Damen|Team-Kombination|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-09|Damen|Team-Kombination
 DTSTART:20270209T123000Z
 DTEND:20270209T140000Z
 SUMMARY:🏆 Ski-WM 2027 – Team-Kombination Damen | Slalom | Start 1
  3:30 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 13:30 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:0b0d67d1286ae6ea840c6a21-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-10|Herren|Team-Kombination|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-10|Herren|Team-Kombination
 DTSTART:20270210T090000Z
 DTEND:20270210T103000Z
 SUMMARY:🏆 Ski-WM 2027 – Team-Kombination Herren | Abfahrt | Start
   10:00 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 10:00 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:0b0d67d1286ae6ea840c6a21-lauf2-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-10|Herren|Team-Kombination|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-10|Herren|Team-Kombination
 DTSTART:20270210T123000Z
 DTEND:20270210T140000Z
 SUMMARY:🏆 Ski-WM 2027 – Team-Kombination Herren | Slalom | Start 
  13:30 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 13:30 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:a5dae2bd66e4289783a54270@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-11|Damen|Riesentorlauf|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-11|Damen|Riesentorlauf
 DTSTART:20270211T090000Z
 DTEND:20270211T103000Z
 SUMMARY:🏆 Ski-WM 2027 – Riesentorlauf Damen | 1. Durchgang | Star
  t 10:00 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 10:00 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:a5dae2bd66e4289783a54270-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-11|Damen|Riesentorlauf|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-11|Damen|Riesentorlauf
 DTSTART:20270211T123000Z
 DTEND:20270211T140000Z
 SUMMARY:🏆 Ski-WM 2027 – Riesentorlauf Damen | 2. Durchgang | Star
  t 13:30 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 13:30 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:33c7a615c48cc4400f63bf82@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-12|Herren|Riesentorlauf|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-12|Herren|Riesentorlauf
 DTSTART:20270212T090000Z
 DTEND:20270212T103000Z
 SUMMARY:🏆 Ski-WM 2027 – Riesentorlauf Herren | 1. Durchgang | Sta
  rt 10:00 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 10:00 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:33c7a615c48cc4400f63bf82-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-12|Herren|Riesentorlauf|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-12|Herren|Riesentorlauf
 DTSTART:20270212T123000Z
 DTEND:20270212T140000Z
 SUMMARY:🏆 Ski-WM 2027 – Riesentorlauf Herren | 2. Durchgang | Sta
  rt 13:30 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 13:30 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:45efd3d61f22c34f7112654a@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-13|Damen|Slalom|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-13|Damen|Slalom
 DTSTART:20270213T090000Z
 DTEND:20270213T103000Z
 SUMMARY:🏆 Ski-WM 2027 – Slalom Damen | 1. Durchgang | Start 10:00
   Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 10:00 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:45efd3d61f22c34f7112654a-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-13|Damen|Slalom|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-13|Damen|Slalom
 DTSTART:20270213T123000Z
 DTEND:20270213T140000Z
 SUMMARY:🏆 Ski-WM 2027 – Slalom Damen | 2. Durchgang | Start 13:30
   Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 13:30 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:ef1a9970956a922789006aab@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-14|Herren|Slalom|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-14|Herren|Slalom
 DTSTART:20270214T090000Z
 DTEND:20270214T103000Z
 SUMMARY:🏆 Ski-WM 2027 – Slalom Herren | 1. Durchgang | Start 10:0
  0 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 10:00 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 BEGIN:VEVENT
 UID:ef1a9970956a922789006aab-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-14|Herren|Slalom|crans montana
+DTSTAMP:20261023T181602Z
+X-ORF-RACE-ID:WM|2027-02-14|Herren|Slalom
 DTSTART:20270214T123000Z
 DTEND:20270214T140000Z
 SUMMARY:🏆 Ski-WM 2027 – Slalom Herren | 2. Durchgang | Start 13:3
  0 Uhr
 DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nRennstart: 13:30 Uhr\nO
- RF-Sendezeit noch nicht erkannt\; Dauer vorläufig.
-END:VEVENT
-BEGIN:VEVENT
-UID:2cf7894931c00e41718f0c9b@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-18|Herren|Super-G|val gardena
-DTSTART;VALUE=DATE:20261218
-DTEND;VALUE=DATE:20261219
-SUMMARY:🎿 Val Gardena – Super-G Herren | vorläufig
-DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
- .
-END:VEVENT
-BEGIN:VEVENT
-UID:ca3e014731e38e5faa406c2f@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2026-12-19|Herren|Abfahrt|val gardena
-DTSTART;VALUE=DATE:20261219
-DTEND;VALUE=DATE:20261220
-SUMMARY:🎿 Val Gardena – Abfahrt Herren | vorläufig
-DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
- .
-END:VEVENT
-BEGIN:VEVENT
-UID:1b9d528c7a798cc46f24f786@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-20|Herren|Abfahrt|garmisch
-DTSTART;VALUE=DATE:20270220
-DTEND;VALUE=DATE:20270221
-SUMMARY:🎿 Garmisch – Abfahrt Herren | vorläufig
-DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
- .
-END:VEVENT
-BEGIN:VEVENT
-UID:759d797961cfbe7a69482ebd@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-21|Herren|Super-G|garmisch
-DTSTART;VALUE=DATE:20270221
-DTEND;VALUE=DATE:20270222
-SUMMARY:🎿 Garmisch – Super-G Herren | vorläufig
-DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
- .
-END:VEVENT
-BEGIN:VEVENT
-UID:e9d9093bcabe7a7e38202048@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-27|Damen|Abfahrt|garmisch
-DTSTART;VALUE=DATE:20270227
-DTEND;VALUE=DATE:20270228
-SUMMARY:🎿 Garmisch – Abfahrt Damen | vorläufig
-DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
- .
-END:VEVENT
-BEGIN:VEVENT
-UID:2ccf1e3fe56b56c78d677f54@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WC|2027-02-28|Damen|Abfahrt|garmisch
-DTSTART;VALUE=DATE:20270228
-DTEND;VALUE=DATE:20270301
-SUMMARY:🎿 Garmisch – Abfahrt Damen | vorläufig
-DESCRIPTION:FIS Ski-Weltcup 2026/27.\nNoch keine bestätigte Startzeit
- .
-END:VEVENT
-BEGIN:VEVENT
-UID:42a52031b1625b6d998eccba@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-04|Damen|Super-G|crans montana
-DTSTART;VALUE=DATE:20270204
-DTEND;VALUE=DATE:20270205
-SUMMARY:🏆 Ski-WM 2027 – Super-G Damen | vorläufig
-DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nNoch keine bestätigte 
- Startzeit.
-END:VEVENT
-BEGIN:VEVENT
-UID:9026bc3d6c173ad4d2f0c9e0@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-05|Herren|Super-G|crans montana
-DTSTART;VALUE=DATE:20270205
-DTEND;VALUE=DATE:20270206
-SUMMARY:🏆 Ski-WM 2027 – Super-G Herren | vorläufig
-DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nNoch keine bestätigte 
- Startzeit.
-END:VEVENT
-BEGIN:VEVENT
-UID:10b97e1efe665a4608a9e367@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-06|Damen|Abfahrt|crans montana
-DTSTART;VALUE=DATE:20270206
-DTEND;VALUE=DATE:20270207
-SUMMARY:🏆 Ski-WM 2027 – Abfahrt Damen | vorläufig
-DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nNoch keine bestätigte 
- Startzeit.
-END:VEVENT
-BEGIN:VEVENT
-UID:8d5ca5740fe94941cc732f37@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-07|Herren|Abfahrt|crans montana
-DTSTART;VALUE=DATE:20270207
-DTEND;VALUE=DATE:20270208
-SUMMARY:🏆 Ski-WM 2027 – Abfahrt Herren | vorläufig
-DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nNoch keine bestätigte 
- Startzeit.
-END:VEVENT
-BEGIN:VEVENT
-UID:ecd3a3034577facfdbf252f0-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-09|Damen|Team-Kombination|crans montana
-DTSTART;VALUE=DATE:20270209
-DTEND;VALUE=DATE:20270210
-SUMMARY:🏆 Ski-WM 2027 – Team-Kombination Damen | Abfahrt | vorlä
- ufig
-DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nNoch keine bestätigte 
- Startzeit.
-END:VEVENT
-BEGIN:VEVENT
-UID:0b0d67d1286ae6ea840c6a21-lauf2@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-10|Herren|Team-Kombination|crans montana
-DTSTART;VALUE=DATE:20270210
-DTEND;VALUE=DATE:20270211
-SUMMARY:🏆 Ski-WM 2027 – Team-Kombination Herren | Abfahrt | vorl
- äufig
-DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nNoch keine bestätigte 
- Startzeit.
-END:VEVENT
-BEGIN:VEVENT
-UID:a5dae2bd66e4289783a54270@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-11|Damen|Riesentorlauf|crans montana
-DTSTART;VALUE=DATE:20270211
-DTEND;VALUE=DATE:20270212
-SUMMARY:🏆 Ski-WM 2027 – Riesentorlauf Damen | 1. Durchgang | vorl
- äufig
-DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nNoch keine bestätigte 
- Startzeit.
-END:VEVENT
-BEGIN:VEVENT
-UID:33c7a615c48cc4400f63bf82@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-12|Herren|Riesentorlauf|crans montana
-DTSTART;VALUE=DATE:20270212
-DTEND;VALUE=DATE:20270213
-SUMMARY:🏆 Ski-WM 2027 – Riesentorlauf Herren | 1. Durchgang | vor
- läufig
-DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nNoch keine bestätigte 
- Startzeit.
-END:VEVENT
-BEGIN:VEVENT
-UID:45efd3d61f22c34f7112654a@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-13|Damen|Slalom|crans montana
-DTSTART;VALUE=DATE:20270213
-DTEND;VALUE=DATE:20270214
-SUMMARY:🏆 Ski-WM 2027 – Slalom Damen | 1. Durchgang | vorläufig
-DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nNoch keine bestätigte 
- Startzeit.
-END:VEVENT
-BEGIN:VEVENT
-UID:ef1a9970956a922789006aab@orf-ski-kalender
-DTSTAMP:20261023T180712Z
-X-ORF-RACE-ID:WM|2027-02-14|Herren|Slalom|crans montana
-DTSTART;VALUE=DATE:20270214
-DTEND;VALUE=DATE:20270215
-SUMMARY:🏆 Ski-WM 2027 – Slalom Herren | 1. Durchgang | vorläufig
-DESCRIPTION:Alpine Ski-WM Crans-Montana 2027.\nNoch keine bestätigte 
- Startzeit.
+ RF-Sendezeit noch nicht erkannt. Dauer vorläufig.
 END:VEVENT
 END:VCALENDAR
